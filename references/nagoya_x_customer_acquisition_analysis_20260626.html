@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>名古屋ギルド / GGPL名古屋 X集客分析 2026-06-26</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d9e2ec;
+      --paper: #ffffff;
+      --soft: #f5f8fb;
+      --blue: #2563eb;
+      --green: #16805f;
+      --amber: #b7791f;
+      --red: #bf3434;
+      --violet: #7c3aed;
+      --slate: #344054;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 900px;
+      color: var(--slate);
+      font-size: 17px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: var(--slate);
+      font-size: 13px;
+    }
+    nav {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 28px 0 36px;
+    }
+    nav a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: var(--ink);
+      background: #fff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    section {
+      margin: 42px 0;
+      padding-top: 6px;
+    }
+    h2 {
+      font-size: 26px;
+      line-height: 1.22;
+      margin: 0 0 14px;
+      letter-spacing: 0;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 24px 0 8px;
+      letter-spacing: 0;
+    }
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 16px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+    }
+    .card h3:first-child { margin-top: 0; }
+    .callout {
+      border-left: 5px solid var(--blue);
+      background: #f4f7ff;
+      padding: 16px 18px;
+      border-radius: 6px;
+      margin: 18px 0;
+    }
+    .callout strong { color: #1744aa; }
+    .danger {
+      border-left-color: var(--red);
+      background: #fff7f7;
+    }
+    .danger strong { color: var(--red); }
+    .good {
+      border-left-color: var(--green);
+      background: #f3fbf7;
+    }
+    .good strong { color: var(--green); }
+    .warn {
+      border-left-color: var(--amber);
+      background: #fff9ed;
+    }
+    .warn strong { color: var(--amber); }
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 22px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eef4fb;
+      color: #24364b;
+      font-weight: 800;
+    }
+    .score {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .score-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 42px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .bar {
+      height: 10px;
+      background: #e8eef5;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+    .bar.green span { background: var(--green); }
+    .bar.amber span { background: var(--amber); }
+    .bar.violet span { background: var(--violet); }
+    .timeline {
+      border-left: 2px solid var(--line);
+      padding-left: 18px;
+      margin-left: 4px;
+    }
+    .step {
+      position: relative;
+      margin: 0 0 18px;
+      padding-bottom: 6px;
+    }
+    .step:before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border: 3px solid var(--blue);
+      border-radius: 50%;
+      position: absolute;
+      left: -25px;
+      top: 6px;
+    }
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .kpi div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+    }
+    .kpi strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--blue);
+    }
+    ul, ol { padding-left: 1.25em; }
+    li { margin: 7px 0; }
+    .tag {
+      display: inline-block;
+      margin: 2px 5px 2px 0;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      font-size: 12px;
+      color: var(--slate);
+    }
+    .source-list li {
+      word-break: break-word;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 52px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 860px) {
+      .page { padding: 28px 16px 56px; }
+      nav, .grid-2, .grid-3, .kpi { grid-template-columns: 1fr; }
+      .score-row { grid-template-columns: 120px 1fr 36px; }
+      table { font-size: 13px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">X Customer Acquisition Analysis</div>
+      <h1>名古屋ギルド / GGPL名古屋<br>X集客分析</h1>
+      <p class="lead">
+        調査時点は2026年6月26日（JST）。公開されているX検索結果、公式サイト、店舗掲載ページから、
+        2店舗がXでどの客層を取りに行けているか、どこで取りこぼしているか、なぜそう判断できるかを整理した。
+        重要なのは、2店舗を同じ投稿運用にそろえることではなく、名駅側の入口機能と栄側の競技機能を分けて、
+        X上で相互送客できる状態にすること。
+      </p>
+      <div class="meta">
+        <span class="pill">対象: ナゴヤギルド / GGPL NAGOYA</span>
+        <span class="pill">媒体: X中心</span>
+        <span class="pill">成果物: Netlify向け静的HTML</span>
+        <span class="pill">背景: 白ベース</span>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#summary">結論</a>
+      <a href="#facts">確認した事実</a>
+      <a href="#diagnosis">集客診断</a>
+      <a href="#actions">30日アクション</a>
+    </nav>
+
+    <section id="summary">
+      <h2>先に結論</h2>
+      <div class="callout">
+        <strong>最優先は、ナゴヤギルドのX導線修復。</strong><br>
+        ナゴヤギルド公式サイトは旧Xアカウントへの導線を残しており、実際に開くと「Account suspended」と表示される。
+        一方で新アカウントは存在し、GGPL名古屋側から「ナゴヤギルドのXが新しくなりました」という告知も確認できる。
+        つまり、X投稿内容以前に、公式サイトからの入口で機会損失が起きている可能性が高い。
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>ナゴヤギルドの役割</h3>
+          <p>
+            名駅側の「初回来店」「カジノアミューズメント」「ポーカー以外も含む遊び」の入口に強い。
+            公式サイトや店舗掲載では、初心者でも遊べる、メイドやカジノ体験、ポーカー以外の大富豪・BJ・バカラ・ルーレットも見える。
+            これは、まだポーカーに強い目的意識がない人を受け止めるには合っている。
+          </p>
+          <p>
+            ただし、Xアカウント移行後のフォロワー基盤が弱く、旧アカウント導線も残っているため、
+            「興味を持った人が公式情報にたどり着く」流れが壊れている。ここを直すだけで、広告費を使わずに改善できる。
+          </p>
+        </div>
+        <div class="card">
+          <h3>GGPL名古屋の役割</h3>
+          <p>
+            栄側の「トーナメント密度」「GGPoker連動」「配信・レポート」「競技継続」の受け皿に強い。
+            Xでもトーナメント、テーブル状況、Global Millions、JOPTサテライト、スポーツ観戦からの初心者講習などが確認できる。
+          </p>
+          <p>
+            既存ポーカープレイヤーには刺さりやすいが、投稿が予定・結果・状況に寄るほど、未経験者には読み解きにくくなる。
+            そのため、初心者向け投稿は「いつ・いくら・一人で行けるか・観戦だけでもよいか」まで固定フォーマットにするべき。
+          </p>
+        </div>
+      </div>
+
+      <h3>全体方針</h3>
+      <p>
+        2店舗のXは、同じ情報を横並びで出すよりも「名古屋でポーカーを始める入口」と
+        「続ける理由・勝ち上がる理由」を分けた方が強い。
+        ナゴヤギルドは初回の心理障壁を下げる投稿、GGPL名古屋は競技・イベント・配信・JOPT Games導線を強める投稿に寄せる。
+        その上で、Xプロフィール、固定投稿、LINE、初回来店割引、スタッフ投稿を同じ計測設計でつなぐ。
+      </p>
+    </section>
+
+    <section id="facts">
+      <h2>確認した事実と判断根拠</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>確認内容</th>
+            <th>根拠</th>
+            <th>なぜ集客上重要か</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ナゴヤギルド公式サイト内に旧X導線が残っている</td>
+            <td>公式サイトのTwitter欄に旧ハンドルが表示され、遷移先のXでは「Account suspended」と確認できた。</td>
+            <td>検索や公式サイトから来た新規客が、最初のSNS接点で不安になる。X運用以前の導線損失であり、最短で直せる。</td>
+          </tr>
+          <tr>
+            <td>ナゴヤギルドの新Xアカウントは存在する</td>
+            <td>公開検索結果で @nagoyaguild_ が確認でき、GGPL名古屋の過去投稿でも「ナゴヤギルドのXが新しくなりました」と告知されている。</td>
+            <td>アカウント自体はあるため、問題は新アカウントの認知移行と公式導線の更新。ゼロから作る話ではない。</td>
+          </tr>
+          <tr>
+            <td>ナゴヤギルドは初心者・カジノ体験・名駅アクセスに向いている</td>
+            <td>公式サイトは「カジノをイメージしたテーマパーク」、ポーカー以外のゲーム、営業時間を掲出。店舗掲載でも初心者向け説明がある。</td>
+            <td>競技色を前面に出すより、初めてでも行ける、ポーカー以外でも遊べる、という不安解消をXで見せるべき。</td>
+          </tr>
+          <tr>
+            <td>GGPL名古屋は競技・栄・オンライン連動に強い</td>
+            <td>公式ページと店舗掲載で、GGPoker連動、YouTube Live、ライブレポーティング、トーナメント・リングを確認。</td>
+            <td>すでにポーカーに興味がある層、勝ち上がりたい層、配信や大型イベントに反応する層の受け皿にしやすい。</td>
+          </tr>
+          <tr>
+            <td>GGPL名古屋はX上の投稿量・フォロワー基盤が相対的に強い</td>
+            <td>X公開検索結果では、@GGPLnagoya は多数の投稿、数千フォロワー、認証表示が確認できる。</td>
+            <td>拡散母数はGGPL側に寄っている。ナゴヤギルドの新アカウント復旧期は、GGPLとスタッフアカウントから送客する方が早い。</td>
+          </tr>
+          <tr>
+            <td>スポーツ観戦からポーカーデビューへつなぐ投稿がある</td>
+            <td>2026年6月26日付近のGGPL名古屋投稿で、日本代表戦放映、観戦だけOK、一人参加OK、無料初心者講習が確認できる。</td>
+            <td>ポーカー未経験者は「ポーカーをするためだけに行く」より、観戦・飲食・知人同伴の理由がある方が動きやすい。これは良い入口。</td>
+          </tr>
+          <tr>
+            <td>スタッフ・アンバサダー導線がすでにある</td>
+            <td>ひな氏の2店舗横断プロフィール、和葉氏の公式アンバサダー・新規2,000円引き言及などを確認。</td>
+            <td>店舗公式より個人の信用で来店する層がいる。割引や紹介名を計測できれば、X集客を売上側へ接続できる。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout warn">
+        <strong>調査制限。</strong><br>
+        Xの正確なインプレッション、プロフィールアクセス、URLクリック、フォロー増減、LINE追加数は、各アカウントのX Analyticsまたは内部計測が必要。
+        このレポートでは公開検索結果と公式ページから見える範囲をもとに、集客上の構造と改善優先度を判断している。
+      </div>
+    </section>
+
+    <section id="diagnosis">
+      <h2>店舗別のX集客診断</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>ナゴヤギルド</h3>
+          <p>
+            現状の強みは「怖くなさ」「入りやすさ」「ポーカー以外も遊べる幅」。新規客にとっては、競技ポーカーの難しさより、
+            店内の雰囲気、スタッフ、初回料金、何をすればよいかが先に知りたい。ナゴヤギルドはこの需要に合う。
+          </p>
+          <p>
+            弱みは、X上の公式導線が整理されていないこと。旧アカウントが止まっている状態で公式サイトから流入すると、
+            その時点で信頼・鮮度・営業中感が下がる。新規開拓では、投稿品質より先に「ここが今の公式です」とわかることが必要。
+          </p>
+          <div class="score">
+            <div class="score-row"><span>新規向き</span><div class="bar green"><span style="width: 92%"></span></div><b>5</b></div>
+            <div class="score-row"><span>導線整備</span><div class="bar amber"><span style="width: 35%"></span></div><b>2</b></div>
+            <div class="score-row"><span>投稿資産</span><div class="bar amber"><span style="width: 52%"></span></div><b>3</b></div>
+            <div class="score-row"><span>スタッフ訴求</span><div class="bar green"><span style="width: 78%"></span></div><b>4</b></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>GGPL名古屋</h3>
+          <p>
+            現状の強みは「投稿量」「大会情報」「競技感」「栄エリア」「オンライン・配信との接続」。
+            すでにポーカーを知っている層には、今日何があるか、何時からか、どの大会か、どのレベルかが伝わりやすい。
+          </p>
+          <p>
+            弱みは、投稿が既存プレイヤー向けの記号になりやすいこと。トーナメント名、レイトレジスト、スタック、リバイなどは、
+            経験者には必要だが未経験者には壁になる。初心者向け投稿は、専門用語を減らして「観戦だけOK」「一人OK」「初回の流れ」を固定表示するべき。
+          </p>
+          <div class="score">
+            <div class="score-row"><span>既存客向き</span><div class="bar violet"><span style="width: 94%"></span></div><b>5</b></div>
+            <div class="score-row"><span>新規向き</span><div class="bar amber"><span style="width: 58%"></span></div><b>3</b></div>
+            <div class="score-row"><span>大会訴求</span><div class="bar green"><span style="width: 96%"></span></div><b>5</b></div>
+            <div class="score-row"><span>計測導線</span><div class="bar amber"><span style="width: 48%"></span></div><b>3</b></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2店舗を分ける理由</h3>
+      <p>
+        X集客で一番避けたいのは、両店舗が同じように「初心者歓迎」「本日トーナメント」とだけ投稿し、
+        どちらに行けばよいのか分からなくなること。名古屋には初心者歓迎を掲げるポーカールームが複数あり、
+        その言葉だけでは差別化になりにくい。
+      </p>
+      <p>
+        ナゴヤギルドは「初めてでも怖くない」「名駅から行ける」「ポーカー以外もある」「スタッフに聞ける」を前面に出す。
+        GGPL名古屋は「今日打てる」「大会に出られる」「上達と配信とイベントにつながる」を前面に出す。
+        この分担にすると、同じX投稿でも客層がぶつかりにくく、初回来店から継続来店までの階段が作れる。
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>入口</h3>
+          <p><span class="tag">名駅</span><span class="tag">初心者講習</span><span class="tag">一人来店</span></p>
+          <p>ナゴヤギルドで「初めての1回」を取りに行く。投稿では、料金、所要時間、予約不要/必要、一人OK、スタッフ名を明記する。</p>
+        </div>
+        <div class="card">
+          <h3>移行</h3>
+          <p><span class="tag">2回目</span><span class="tag">リング</span><span class="tag">小型トーナメント</span></p>
+          <p>ナゴヤギルドで体験した人に、GGPL名古屋の初心者向けトーナメントや観戦イベントを案内する。</p>
+        </div>
+        <div class="card">
+          <h3>継続</h3>
+          <p><span class="tag">大会</span><span class="tag">JOPT Games</span><span class="tag">ランキング</span></p>
+          <p>GGPL名古屋で大会、サテライト、配信、ランキング、JOPT Games導線に接続し、来店理由を毎週作る。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="funnel">
+      <h2>X上の集客ファネル</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>段階</th>
+            <th>ユーザー心理</th>
+            <th>現在見えている材料</th>
+            <th>改善すべき投稿</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>認知</td>
+            <td>名古屋で遊ぶ場所を探している。ポーカーは少し気になるが詳しくない。</td>
+            <td>ナゴヤギルドはカジノ体験・名駅・複数ゲーム。GGPLは栄・ポーカー専門感。</td>
+            <td>「名古屋駅から初めてのポーカー」「栄で観戦だけOK」など、検索語に近い見出しを固定化。</td>
+          </tr>
+          <tr>
+            <td>検討</td>
+            <td>一人で行けるか、いくらか、ルールが分からなくても大丈夫かが不安。</td>
+            <td>GGPLのサッカー観戦投稿は「観戦だけOK」「一人参加OK」「無料初心者講習」が入っていて良い。</td>
+            <td>両店舗で「初回来店の流れ」を画像1枚にする。料金、所要時間、予約、服装、LINEを必ず入れる。</td>
+          </tr>
+          <tr>
+            <td>来店</td>
+            <td>今日行けるか、空いているか、誰に声をかければよいかを知りたい。</td>
+            <td>GGPLはテーブル状況投稿がある。ナゴヤギルドは新アカウント導線の修復が先。</td>
+            <td>毎日同じ時間に「本日の初めて枠」「初心者講習できます」「今いるスタッフ」を出す。</td>
+          </tr>
+          <tr>
+            <td>再訪</td>
+            <td>次は何に出ればよいか、上手くなれるか、知り合いが増えるかを知りたい。</td>
+            <td>GGPLの大会・サテライト・Global Millions系投稿は継続理由になる。</td>
+            <td>初回後の次回導線として、ミッション、ランキング、スタッフ推薦トナメ、JOPT Gamesチケットを見える化。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="actions">
+      <h2>30日アクションプラン</h2>
+      <div class="timeline">
+        <div class="step">
+          <h3>1週目: 導線の修復</h3>
+          <ul>
+            <li>ナゴヤギルド公式サイト、店舗掲載、lit.link、Googleビジネス、スタッフプロフィールのXリンクを @nagoyaguild_ に統一する。</li>
+            <li>X社に旧アカウント削除を依頼することを主戦場にしない。短期で消すべき対象は、旧アカウントそのものではなく、公式サイト・外部掲載・検索結果に残る旧リンク。</li>
+            <li>旧アカウント停止により迷った人向けに、GGPL名古屋とスタッフアカウントから「現在の公式はこちら」を再掲する。</li>
+            <li>両店舗の固定投稿を作る。ナゴヤギルドは初回来店、GGPL名古屋は初心者/大会/観戦の3ルート。</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>2週目: 初回来店キャンペーン</h3>
+          <ul>
+            <li>「名古屋ポーカー初回パス」を作り、Xを見た新規に同じ説明ができるようにする。</li>
+            <li>ナゴヤギルドは「ポーカーが分からない人向け」、GGPLは「サッカー観戦・飲み・大会観戦から入る人向け」に分ける。</li>
+            <li>画像投稿は、長い文章ではなく、料金、時間、場所、一人OK、LINE導線を1枚にまとめる。</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>3週目: スタッフ・アンバサダー送客</h3>
+          <ul>
+            <li>ひな氏のような2店舗横断スタッフ、和葉氏のようなアンバサダー導線を、公式が引用して来店導線化する。</li>
+            <li>紹介名やX限定コードを分ける。例: NG-X-FIRST、GGPL-X-FIRST、HINA-X、KAZUHA-X。</li>
+            <li>スタッフ投稿は「今日いる」「初心者講習できます」「この大会なら初めてでも出やすい」の3型に絞る。</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>4週目: 数字で検証</h3>
+          <ul>
+            <li>Xプロフィールアクセス、URLクリック、LINE追加、初回来店数、紹介名利用数、2回目来店数を1週間単位で見る。</li>
+            <li>来店時に「Xのどの投稿を見たか」をメモする。投稿ごとの来店寄与が分かるだけで、翌月の投稿精度が上がる。</li>
+            <li>ナゴヤギルドからGGPL、GGPLからナゴヤギルドへの相互送客数も確認する。競合ではなく階段として機能しているかを見る。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kpi">
+        <div><strong>1</strong>旧X導線を完全撤去</div>
+        <div><strong>4</strong>固定投稿を2店舗×2本作成</div>
+        <div><strong>6</strong>紹介コードを媒体別に分解</div>
+        <div><strong>30</strong>日後に来店寄与を検証</div>
+      </div>
+    </section>
+
+    <section id="templates">
+      <h2>すぐ使える投稿型</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>ナゴヤギルド向け</h3>
+          <p><strong>狙い:</strong> 初めての不安を消して、名駅からの来店に変える。</p>
+          <ol>
+            <li>「初めてのポーカー、今日できます」型<br>料金、所要時間、一人OK、ルール説明あり、LINEを明記。</li>
+            <li>「ポーカー以外も遊べます」型<br>大富豪、BJ、バカラ、ルーレットを並べ、ポーカー未経験でも入れる理由を作る。</li>
+            <li>「スタッフの顔が見える」型<br>誰が講習するか、今日いるか、初回で何を教えるかを出す。</li>
+            <li>「名駅で予定前後に寄れる」型<br>新幹線口、夕方、飲み前、イベント前後の短時間利用を提案。</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>GGPL名古屋向け</h3>
+          <p><strong>狙い:</strong> 経験者の即来店と、未経験者の観戦・講習入口を両立する。</p>
+          <ol>
+            <li>「今日のテーブル状況」型<br>リング稼働、初心者講習、レイトレジスト、空席感、LINE導線を定型で出す。</li>
+            <li>「観戦からポーカーデビュー」型<br>スポーツ観戦、配信、イベントを入口にして、観戦だけOK、一人OKを明記。</li>
+            <li>「今週の勝ち上がり」型<br>Global Millions、JOPTサテライト、JOPT Gamesチケットなどの次の目標を出す。</li>
+            <li>「初級から大会へ」型<br>初めての人向け大会、出やすい金額帯、スタッフ推薦コメントをセットで出す。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracking">
+      <h2>計測設計</h2>
+      <p>
+        X集客は、インプレッションだけでは判断しない。ポーカー店舗では、実際の来店、初回利用、再訪、大会参加に変わったかが重要。
+        そのため、X投稿ごとにLINEリンク、紹介名、店頭メモを分ける。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>計測項目</th>
+            <th>見る理由</th>
+            <th>取得方法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>プロフィールアクセス</td>
+            <td>投稿から店舗情報確認へ進んだかを見る。</td>
+            <td>X Analytics。</td>
+          </tr>
+          <tr>
+            <td>URLクリック / LINE追加</td>
+            <td>来店意向の強い行動。投稿別に差が出る。</td>
+            <td>UTM付き短縮URL、LINE流入メモ。</td>
+          </tr>
+          <tr>
+            <td>初回来店数</td>
+            <td>集客の最終成果。Xを見たが来店していない状態では売上に入らない。</td>
+            <td>会計時に「X見た」「紹介者名」「投稿名」を1項目で記録。</td>
+          </tr>
+          <tr>
+            <td>2回目来店数</td>
+            <td>ナゴヤギルドの入口がGGPLの継続へつながったかを見る。</td>
+            <td>初回コードと会員/LINEメモを照合。</td>
+          </tr>
+          <tr>
+            <td>大会参加転換</td>
+            <td>GGPLの強みである大会・サテライトが集客装置になっているかを見る。</td>
+            <td>エントリー時のコード、スタッフ聞き取り。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="risks">
+      <h2>リスクと注意点</h2>
+      <div class="grid-2">
+        <div class="callout danger">
+          <strong>旧アカウント削除より、旧リンク撤去を最優先。</strong><br>
+          停止済みXアカウント自体の削除はX社対応に依存するため、短期では読みにくい。実務上は、公式サイト、外部掲載、Google検索結果、スタッフプロフィールから旧リンクを消し、現在の公式Xへ統一する方が確実。
+        </div>
+        <div class="callout warn">
+          <strong>大会情報だけでは新規に届きにくい。</strong><br>
+          レイトレジスト、リエントリー、スタック、サテライトは既存客向けには便利だが、未経験者には専門語が多い。
+        </div>
+        <div class="callout warn">
+          <strong>2店舗の投稿を同質化しない。</strong><br>
+          同じ初心者歓迎投稿を並べると、どちらに行くべきか分からない。名駅入口と栄競技で役割を分ける。
+        </div>
+        <div class="callout good">
+          <strong>アンバサダーは計測すれば強い。</strong><br>
+          個人名で新規割引が効く導線はすでにある。紹介名を売上側に記録できれば、X集客の費用対効果が見える。
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>参照リンク</h2>
+      <ul class="source-list">
+        <li><a href="https://x.com/nagoyaguild_" target="_blank" rel="noopener">ナゴヤギルド 新Xアカウント @nagoyaguild_</a></li>
+        <li><a href="https://x.com/AGNagoyaguild" target="_blank" rel="noopener">旧Xアカウント @AGNagoyaguild</a>（調査時点で停止表示）</li>
+        <li><a href="https://x.com/GGPLnagoya" target="_blank" rel="noopener">GGPL名古屋 Xアカウント @GGPLnagoya</a></li>
+        <li><a href="https://nagoyaguild.com/" target="_blank" rel="noopener">ナゴヤギルド公式サイト</a></li>
+        <li><a href="https://nagoyaguild.com/access/" target="_blank" rel="noopener">ナゴヤギルド ACCESS</a></li>
+        <li><a href="https://ggpokerlive.jp/nagoya/" target="_blank" rel="noopener">GGPL名古屋 公式ページ</a></li>
+        <li><a href="https://shop.caferun.jp/shop/7210/" target="_blank" rel="noopener">カフェるん ナゴヤギルド掲載</a></li>
+        <li><a href="https://shop.caferun.jp/shop/10939/" target="_blank" rel="noopener">カフェるん Good Game Poker Live Nagoya掲載</a></li>
+        <li><a href="https://x.com/GGPLnagoya/status/1995443285796557043" target="_blank" rel="noopener">GGPL名古屋によるナゴヤギルド新X告知</a></li>
+        <li><a href="https://x.com/GGPLnagoya/status/2070077037096894910" target="_blank" rel="noopener">GGPL名古屋 日本代表戦・初心者講習告知</a></li>
+        <li><a href="https://x.com/kazuhaQQ" target="_blank" rel="noopener">和葉氏 公式アンバサダー導線</a></li>
+        <li><a href="https://x.com/hina_AGNagoya" target="_blank" rel="noopener">ひな氏 2店舗横断スタッフ導線</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        作成日: 2026年6月26日（JST） / 形式: 静的HTML / Netlify公開時はこのファイルを index.html としてZIPのルートに配置。
+        公開Xの数値は変動するため、最終判断には各アカウントのX Analyticsと店頭の新規来店記録を接続する。
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

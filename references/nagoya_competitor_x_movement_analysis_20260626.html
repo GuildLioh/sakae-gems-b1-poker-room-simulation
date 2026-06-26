@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>名古屋エリア競合X動向分析 2026-06-26</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --paper: #ffffff;
+      --soft: #f6f9fc;
+      --blue: #2563eb;
+      --green: #16805f;
+      --amber: #a96500;
+      --red: #b42318;
+      --teal: #0f766e;
+      --violet: #6d4aff;
+      --slate: #344054;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 44px 0 72px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 30px;
+    }
+    .eyebrow {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 42px 0 14px;
+      font-size: 26px;
+      line-height: 1.24;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+    p { margin: 8px 0; }
+    .lead {
+      max-width: 940px;
+      color: var(--slate);
+      font-size: 17px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    nav {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin: 28px 0 36px;
+    }
+    nav a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 14px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .callout {
+      border-left: 5px solid var(--blue);
+      background: #f4f7ff;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+    .callout.good { border-left-color: var(--green); background: #f3fbf7; }
+    .callout.warn { border-left-color: var(--amber); background: #fff9ed; }
+    .callout.danger { border-left-color: var(--red); background: #fff7f7; }
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+    }
+    .card strong { color: #24364b; }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      margin: 2px 4px 2px 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--slate);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .rank {
+      display: inline-block;
+      min-width: 42px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #bfd1ff;
+      background: #eef4ff;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .rank.hot {
+      border-color: #c5e6d8;
+      background: #edf9f3;
+      color: var(--green);
+    }
+    .rank.risk {
+      border-color: #f4beb6;
+      background: #fff0ed;
+      color: var(--red);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+      word-break: break-word;
+    }
+    th {
+      background: #eef4fb;
+      color: #24364b;
+      font-weight: 800;
+    }
+    ul, ol { padding-left: 1.25em; }
+    li { margin: 7px 0; }
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .source-list li { margin: 6px 0; }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 52px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      .page { width: min(100% - 32px, 1180px); padding-top: 28px; }
+      nav, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        font-size: 13px;
+      }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">Competitor X Movement</div>
+      <h1>名古屋エリア競合X動向分析</h1>
+      <p class="lead">
+        調査時点は2026年6月26日（JST）。ナゴヤギルド、GGPL名古屋の競合になりやすい名古屋エリアのポーカー店・アミューズメントカジノ店について、
+        公開Xプロフィール、検索で確認できた投稿例、公式サイト導線をもとに、X上で何を取りに来ているかを整理した。
+      </p>
+      <div class="meta">
+        <span class="pill">対象: 名古屋/栄/錦/今池/新栄/大須周辺</span>
+        <span class="pill">視点: X集客導線</span>
+        <span class="pill">比較対象: ナゴヤギルド / GGPL名古屋</span>
+        <span class="pill">白ベースHTML</span>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#summary">総評</a>
+      <a href="#map">競合整理</a>
+      <a href="#moves">動きの型</a>
+      <a href="#threat">脅威</a>
+      <a href="#counter">対抗策</a>
+      <a href="#sources">参照</a>
+    </nav>
+
+    <section id="summary">
+      <h2>総評</h2>
+      <div class="callout danger">
+        <strong>競合は、X上で「初心者の不安を削る」「今日行く理由を作る」「大会実績を見せる」の3方向をかなり明確に出している。</strong><br>
+        ナゴヤギルドとGGPL名古屋はブランド力・キャスト導線・系列感の強みがあるが、競合の一部はXプロフィールや投稿本文だけで、
+        初心者講習、予算、営業時間、駅距離、割引、LINE、イベント結果まで見える。ここは単純に見習うべき部分がある。
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>初心者獲得の競合</h3>
+          <p>
+            むさぽ、BEGINS、PARADIA、じゃんけん、Second Nutsは「初心者講習」「初心者歓迎」「予約不要」「一人OK」「低予算」を前面に置いている。
+            これはポーカー未経験者が最初に抱く不安に対して、投稿を読む前から答えを出す動き。
+          </p>
+        </div>
+        <div class="card">
+          <h3>経験者獲得の競合</h3>
+          <p>
+            PARADIA、Second Nuts、REX、LAG、Royal Flushは、トーナメント名、保証、通過者、プライズ、カレンダーで経験者の来店理由を作っている。
+            GGPL名古屋の得意領域に直接ぶつかる。
+          </p>
+        </div>
+        <div class="card">
+          <h3>夜遊び獲得の競合</h3>
+          <p>
+            LAG、VALHALLA、REX、Royal Flushは、シーシャ、食事、バー、VIP、ブラックジャック、バカラなど、ポーカー以外の入口を見せている。
+            ナゴヤギルドの多ゲーム導線と近い競合軸になる。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="map">
+      <h2>競合アカウント別の動き</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>競合</th>
+            <th>Xで見える動き</th>
+            <th>集客上の狙い</th>
+            <th>ナゴヤギルドへの影響</th>
+            <th>GGPL名古屋への影響</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>むさぽ名古屋栄店</strong><br>
+              <a href="https://x.com/634poker_nagoya" target="_blank" rel="noopener">@634poker_nagoya</a>
+            </td>
+            <td>
+              プロフィールで「13時オープン」「昼からプレイ」「初心者講習無料」「平均予算3000円」を打ち出し。
+              投稿例では平日13時から15時の割引、紹介パス、初心者講習0円、ドリンクバー無料を見せている。
+            </td>
+            <td>
+              <span class="tag">昼需要</span><span class="tag">初心者</span><span class="tag">低予算</span><span class="tag">紹介</span><br>
+              「始めたいが不安」「高そう」「夜しか無理そう」という壁を先に崩す。
+            </td>
+            <td>初心者・昼帯・低予算の入口を取られやすい。ナゴヤギルドは多ゲーム/キャストの親しみを、初回手順まで接続しないと比較で弱く見える。</td>
+            <td>GGPLよりカジュアルな入口として見えるため、未経験者を先に囲われる可能性がある。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Second Nuts</strong><br>
+              <a href="https://x.com/SecondNutsPoker" target="_blank" rel="noopener">@SecondNutsPoker</a>
+            </td>
+            <td>
+              公式サイトでは予約不要、初心者無料講習、入場料1000円、毎日トーナメント/リング、オンラインチュートリアルとLINE連携を明記。
+              X投稿では大型シリーズ、DAY1、リポスト対象、結果投稿が見える。
+            </td>
+            <td>
+              <span class="tag">初心者安心</span><span class="tag">LINE連携</span><span class="tag">結果投稿</span><span class="tag">リポスト</span><br>
+              初回導線と経験者向けイベント導線を両方持つ。
+            </td>
+            <td>「予約不要・一人OK・入場料」の明確さは、初回来店比較で強い。ナゴヤギルドも初回説明を同じ粒度で見せる必要がある。</td>
+            <td>トーナメント結果、DAY1、リポスト対象はGGPLの大会導線と競合する。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>PARADIA NAGOYA</strong><br>
+              <a href="https://x.com/NagoyaParadia" target="_blank" rel="noopener">@NagoyaParadia</a>
+            </td>
+            <td>
+              プロフィールで「日本で1番FTが面白いお店」「ストラクチャー」「無料初心者講習」を訴求。
+              投稿ではNagoya Super Tournament、7MAX SHOTCLOCK、参加費、保証、開始時刻、通過者を出している。
+            </td>
+            <td>
+              <span class="tag">本格派</span><span class="tag">大会品質</span><span class="tag">初心者講習</span><span class="tag">結果実績</span><br>
+              初心者も受けつつ、実際の主戦場は大会品質と経験者の熱量。
+            </td>
+            <td>明るい内装、低価格、初心者講習を出しているため、初回候補にも入る。</td>
+            <td>大会の本格感を強く出しており、GGPLの競技性訴求と正面衝突する。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>じゃんけんポーカー今池店</strong><br>
+              <a href="https://x.com/jyanken_poker" target="_blank" rel="noopener">@jyanken_poker</a>
+            </td>
+            <td>
+              プロフィールで「今池駅徒歩1分」「毎日15時から23時」「初心者講習毎日」「リング常時」「トーナメント配信」「公式LINE」を明記。
+              投稿例では営業終了と翌日OPEN、リングゲームと初心者講習の案内を繰り返している。
+            </td>
+            <td>
+              <span class="tag">営業安心</span><span class="tag">駅近</span><span class="tag">毎日講習</span><span class="tag">配信</span><br>
+              毎日動いている店という信頼を作り、初心者にも経験者にも不安を残さない。
+            </td>
+            <td>ナゴヤギルドの営業中感、初心者対応、受付手順が見えにくいと、比較で負ける。</td>
+            <td>配信/RFID/本気感は、競技志向の一部を奪う可能性がある。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>LAG NAGOYA</strong><br>
+              <a href="https://x.com/LAG_NAGOYA" target="_blank" rel="noopener">@LAG_NAGOYA</a>
+            </td>
+            <td>
+              プロフィールで「ポーカーとシーシャと食事」「VIPルーム」「24時以降はシーシャバー」を提示。
+              投稿では80Kフリーズアウト、ラグセレ、ペア割、結果投稿が見える。
+            </td>
+            <td>
+              <span class="tag">シーシャ</span><span class="tag">夜遊び</span><span class="tag">ペア来店</span><span class="tag">大会</span><br>
+              ポーカーだけでなく、デート、二次会、シーシャ客をポーカー側へ入れる。
+            </td>
+            <td>非ポーカー入口で競合。ナゴヤギルドは大富豪/BJ/バカラ/ルーレットを「初回導線」として見せる必要がある。</td>
+            <td>大会も出しているため、GGPLのトーナメント客にも接触する。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>BEGINS poker 大須</strong><br>
+              <a href="https://x.com/BEGINSpokerosu" target="_blank" rel="noopener">@BEGINSpokerosu</a>
+            </td>
+            <td>
+              プロフィールで「ポーカー初心者特化店」「名古屋No.1初心者輩出店」「風営5号取得」を訴求。
+              公式サイトでも初心者特化、専門用語をなるべく使わない、明朗会計、予約不要を強く出している。
+            </td>
+            <td>
+              <span class="tag">初心者特化</span><span class="tag">不安解消</span><span class="tag">法令安心</span><span class="tag">明朗会計</span><br>
+              ポーカー未経験者の心理的不安を正面から処理している。
+            </td>
+            <td>初めての人に対する言葉のやさしさで競合する。キャストの親しみだけではなく、店舗側の安心説明が必要。</td>
+            <td>GGPLの本格感とは別軸だが、経験者化する前の初心者を先に獲得される。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Royal Flush</strong><br>
+              <a href="https://x.com/RoyalFlush_6186" target="_blank" rel="noopener">@RoyalFlush_6186</a>
+            </td>
+            <td>
+              プロフィールで初心者講習と大人の社交場を訴求。投稿例では月間カレンダー、NST Day1、P1の実績を出している。
+              公式サイトもトーナメントカレンダー、初心者限定、フード/ドリンク、LINE配信を持つ。
+            </td>
+            <td>
+              <span class="tag">カレンダー</span><span class="tag">社交場</span><span class="tag">フード</span><span class="tag">LINE</span><br>
+              大会予定を探している人と、食事/酒を含めて遊ぶ人を取り込む。
+            </td>
+            <td>フード/ドリンク込みの遊び場として競合する。</td>
+            <td>カレンダーと実績投稿は大会参加者の比較対象になる。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Check Raise</strong><br>
+              <a href="https://x.com/CheckRaise6" target="_blank" rel="noopener">@CheckRaise6</a>
+            </td>
+            <td>
+              プロフィールで「日本一初心者に優しい店舗」「リングゲームメイン」「1000円から楽しめる」を訴求。
+              投稿例ではオープン告知、ノーレーキ、フリーロール、出勤ディーラーを組み合わせている。
+            </td>
+            <td>
+              <span class="tag">低価格</span><span class="tag">リング</span><span class="tag">初心者</span><span class="tag">早時間特典</span><br>
+              低単価で試しやすく、リング常連化しやすい導線。
+            </td>
+            <td>安く試したい初心者に対して競合。ナゴヤギルド側は初回特典を見える位置に置くべき。</td>
+            <td>リング客の一部を取り合う可能性がある。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>VALHALLA</strong><br>
+              <a href="https://x.com/VALHALLA_poker" target="_blank" rel="noopener">@VALHALLA_poker</a>
+            </td>
+            <td>
+              プロフィールで栄のアミューズメントカジノバー、広い空間、ポーカー/BJ/バカラを提示。
+              投稿例ではフリーロール結果、プライズ獲得者を出している。
+            </td>
+            <td>
+              <span class="tag">カジノバー</span><span class="tag">多ゲーム</span><span class="tag">結果投稿</span><br>
+              ポーカーだけではない遊び場として、夜の選択肢に入る。
+            </td>
+            <td>多ゲームの直接競合。ナゴヤギルドはテーマパーク感とキャスト体験をもっと明確に見せたい。</td>
+            <td>大会結果投稿の面では一部競合するが、主軸は夜遊び寄り。</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>REX POKER NAGOYA</strong><br>
+              <a href="https://x.com/REXPOKER_NAGOYA" target="_blank" rel="noopener">@REXPOKER_NAGOYA</a>
+            </td>
+            <td>
+              X検索上では周年キャンペーン、総額ポイント、複数カテゴリの大型戦が見える。
+              公式サイトではビギナーズゲーム、トーナメント、リング、飲食のみ歓迎、撮影可を明記している。
+            </td>
+            <td>
+              <span class="tag">周年</span><span class="tag">大型保証</span><span class="tag">バー利用</span><span class="tag">撮影可</span><br>
+              イベント感とバー利用の両方を作る。
+            </td>
+            <td>飲食のみ歓迎、撮影可はSNS拡散に向く。ナゴヤギルドも撮影しやすいシーンを設計すると強い。</td>
+            <td>周年/大型保証はGGPLの大会客に届く。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="moves">
+      <h2>競合がXで使っている強い動きの型</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>1. 初心者の不安を先に潰す</h3>
+          <p>
+            「無料初心者講習」「初心者歓迎」「予約不要」「一人OK」「低予算」「駅徒歩」をプロフィールや投稿に入れている競合が多い。
+            これは投稿を細かく読む前に、行けるかどうかの判断材料を与える動き。
+          </p>
+          <p class="small">該当: むさぽ、BEGINS、PARADIA、じゃんけん、Second Nuts、Check Raise</p>
+        </div>
+        <div class="card">
+          <h3>2. 今日行く理由を作る</h3>
+          <p>
+            営業開始/終了、明日のOPEN、当日のトーナメント、時間帯割引、ペア割、フリーロール、ノーレーキなど、
+            今日または今週行く理由を細かく出している。
+          </p>
+          <p class="small">該当: じゃんけん、むさぽ、LAG、Check Raise、PARADIA</p>
+        </div>
+        <div class="card">
+          <h3>3. 結果投稿で店の熱量を証明する</h3>
+          <p>
+            通過者、プライズ獲得者、優勝者、ポイント、エントリー数を出す投稿は、経験者に「人が集まっている」「戦える場がある」と伝える。
+            単なる告知より、コミュニティの実在感が強い。
+          </p>
+          <p class="small">該当: PARADIA、Second Nuts、LAG、VALHALLA、REX、Royal Flush</p>
+        </div>
+        <div class="card">
+          <h3>4. XからLINE/店頭へ戻す</h3>
+          <p>
+            公式LINE、LINE連携、予約、キャンペーン通知、リポスト対象など、Xだけで終わらせない導線が見える店がある。
+            ここはナゴヤギルド/GGPL名古屋側の改善余地が大きい。
+          </p>
+          <p class="small">該当: Second Nuts、じゃんけん、Royal Flush、GGPL名古屋の過去キャンペーン</p>
+        </div>
+        <div class="card">
+          <h3>5. ポーカー以外の入口を混ぜる</h3>
+          <p>
+            シーシャ、食事、バー、VIP、バカラ、ブラックジャック、撮影可、飲食のみ歓迎などを見せることで、
+            「ポーカーを知らない同行者」も連れて来やすくしている。
+          </p>
+          <p class="small">該当: LAG、VALHALLA、REX、Royal Flush、PARADIA</p>
+        </div>
+        <div class="card">
+          <h3>6. 外部まとめ/地域情報に拾われる</h3>
+          <p>
+            名古屋ポーカー系のまとめサイトや地域情報アカウントに拾われると、店舗公式Xだけでは届かない検索層に入れる。
+            競合比較の場に載ったとき、プロフィールと初回導線が弱い店は不利になる。
+          </p>
+          <p class="small">該当: PokerInfoNagoya、LightTHREE、各店舗紹介記事</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="threat">
+      <h2>ナゴヤギルド / GGPL名古屋にとっての脅威</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>脅威</th>
+            <th>なぜ危ないか</th>
+            <th>競合例</th>
+            <th>こちらの見立て</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank risk">高</span> 初心者導線で先に比較される</td>
+            <td>初心者は「ポーカーに行きたい」ではなく「怖くないか」「一人で行けるか」「いくらか」「教えてくれるか」で選ぶ。競合はこの答えをX上で先に出している。</td>
+            <td>むさぽ、BEGINS、PARADIA、じゃんけん、Second Nuts</td>
+            <td>ナゴヤギルドはキャストの親しみがあるため、本来は初心者向きに強い。ただし初回手順が見えないと、競合のほうが安心に見える。</td>
+          </tr>
+          <tr>
+            <td><span class="rank risk">高</span> 大会本格派の奪い合い</td>
+            <td>経験者は保証、構造、結果、参加人数、通過者名を見る。PARADIAやSecond Nutsはこの言語をX上で出している。</td>
+            <td>PARADIA、Second Nuts、REX、LAG、Royal Flush</td>
+            <td>GGPL名古屋は大会/ブランドの地力があるが、投稿ごとの難易度ラベル、結果の見せ方、初級者からの階段がないと入口が硬くなる。</td>
+          </tr>
+          <tr>
+            <td><span class="rank">中</span> 非ポーカーの夜遊び需要を取られる</td>
+            <td>シーシャ、食事、バー、VIP、BJ、バカラは、ポーカー未経験の同行者を連れて来る理由になる。</td>
+            <td>LAG、VALHALLA、REX、Royal Flush</td>
+            <td>ナゴヤギルドは大富豪/BJ/バカラ/ルーレットを持つので勝てる余地がある。ただしXで毎回見えないと、ポーカー専門店との差別化にならない。</td>
+          </tr>
+          <tr>
+            <td><span class="rank">中</span> 価格・割引の見え方で負ける</td>
+            <td>「1000円から」「平均3000円」「13-15時割引」「ペア割」などは、初回来店の心理的ハードルを下げる。</td>
+            <td>むさぽ、Check Raise、LAG、Second Nuts、PARADIA</td>
+            <td>価格で全面競争する必要はないが、初回特典や受付での使い方は見せるべき。</td>
+          </tr>
+          <tr>
+            <td><span class="rank">中</span> X投稿が店頭計測に戻らない</td>
+            <td>競合の一部はLINE、リポスト、紹介パス、割引、店頭申告に近い導線を持つ。こちらが空気投稿だけだと、成果が追えない。</td>
+            <td>Second Nuts、じゃんけん、むさぽ、Royal Flush</td>
+            <td>キャストXの熱量を「受付で見せる」「LINE追加」「投稿コード」へ戻すことが最優先。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="counter">
+      <h2>こちらが取るべき対抗策</h2>
+      <div class="callout good">
+        <strong>結論は、競合の良いところを真似るのではなく、2店舗の役割を使って上書きすること。</strong><br>
+        ナゴヤギルドは「初めてでも入れる入口」、GGPL名古屋は「大会に挑戦する出口」として見せる。
+        競合が1店舗単体で作っている初心者導線と大会導線を、こちらは2店舗の成長導線として作れる。
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>対抗テーマ</th>
+            <th>投稿で出すべき内容</th>
+            <th>なぜ効くか</th>
+            <th>担当</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>初心者不安の処理</td>
+            <td>「一人OK」「ルール説明できます」「ポーカー以外もOK」「この投稿を受付で見せてください」を定型化する。</td>
+            <td>むさぽ、BEGINS、PARADIAが取っている初心者検索層に対して、キャストの親しみを乗せて返せる。</td>
+            <td>ナゴヤギルド公式 + キャスト全員</td>
+          </tr>
+          <tr>
+            <td>大会への階段</td>
+            <td>「初めては名駅ナゴヤギルド」「大会挑戦は栄GGPL名古屋」のように、2店舗の使い分けを毎週出す。</td>
+            <td>競合単店では作りにくい成長導線。初心者を先に受け、慣れたらGGPLへ送れる。</td>
+            <td>両公式</td>
+          </tr>
+          <tr>
+            <td>大会投稿の読みやすさ</td>
+            <td>GGPL投稿に「初心者向け」「中級者向け」「経験者向け」「観戦だけOK」のラベルを付ける。</td>
+            <td>PARADIAやSecond Nutsの本格投稿に対して、参加判断のしやすさで勝てる。</td>
+            <td>GGPL名古屋公式</td>
+          </tr>
+          <tr>
+            <td>非ポーカー入口</td>
+            <td>大富豪、BJ、バカラ、ルーレット、観戦、飲みだけを、ポーカー投稿と同じ熱量で出す。</td>
+            <td>LAG、VALHALLA、REXの夜遊び導線に対抗できる。同行者がいる新規に効く。</td>
+            <td>ナゴヤギルド公式 + キャスト</td>
+          </tr>
+          <tr>
+            <td>計測</td>
+            <td>投稿型コードを作る。例: NG-FIRST、NG-GAME、GG-WATCH、GG-DEEP、GG-RESULT。</td>
+            <td>競合に対して何で勝てたか、どの投稿が来店につながったかを拾える。</td>
+            <td>店頭受付 + 公式</td>
+          </tr>
+          <tr>
+            <td>外部まとめ対策</td>
+            <td>公式サイト、Waitinglist、Google、外部掲載、Xプロフィールの情報を統一する。</td>
+            <td>競合比較記事や地域情報アカウントに拾われたとき、古い公式リンクや曖昧な説明があると負ける。</td>
+            <td>運営側</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>競合に勝つための週間投稿型</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>曜日</th>
+            <th>投稿テーマ</th>
+            <th>狙う競合対抗</th>
+            <th>投稿例の方向性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>月</td>
+            <td>初心者の日</td>
+            <td>むさぽ / BEGINS / PARADIA / じゃんけん</td>
+            <td>初めての流れ、料金、一人OK、説明可能時間、受付で見せる投稿。</td>
+          </tr>
+          <tr>
+            <td>火</td>
+            <td>結果と常連の熱量</td>
+            <td>Second Nuts / PARADIA / LAG</td>
+            <td>週末結果、優勝者、参加者コメント、次の挑戦先。</td>
+          </tr>
+          <tr>
+            <td>水</td>
+            <td>非ポーカー入口</td>
+            <td>LAG / VALHALLA / REX / Royal Flush</td>
+            <td>大富豪、BJ、バカラ、ルーレット、観戦だけ、飲みだけ、同行者OK。</td>
+          </tr>
+          <tr>
+            <td>木</td>
+            <td>週末カレンダー</td>
+            <td>Royal Flush / PARADIA / REX</td>
+            <td>金土日の初級者向け、経験者向け、観戦向けを分けて出す。</td>
+          </tr>
+          <tr>
+            <td>金</td>
+            <td>キャスト導線</td>
+            <td>全競合</td>
+            <td>誰が案内できるか、何時なら説明できるか、初めての人は誰に声をかけるか。</td>
+          </tr>
+          <tr>
+            <td>土日</td>
+            <td>リアルタイム営業感</td>
+            <td>じゃんけん / むさぽ / LAG</td>
+            <td>今から入れる、初心者講習あと何枠、観戦OK、テーブル状況、結果速報。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>競合の弱いところ</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>専門語が強すぎる投稿が多い</h3>
+          <p>
+            経験者には刺さるが、未経験者には読めない投稿も多い。GGPL名古屋は大会投稿に難易度ラベルを入れるだけで、競技性を落とさず読みやすくできる。
+          </p>
+        </div>
+        <div class="card">
+          <h3>キャストの顔が弱い店もある</h3>
+          <p>
+            結果投稿やキャンペーンは強いが、「誰に会えるか」「誰が案内してくれるか」が弱い競合もある。ナゴヤギルドはキャストXが強みなので、受付導線だけ足せば勝ち筋になる。
+          </p>
+        </div>
+        <div class="card">
+          <h3>価格訴求は差別化になりにくい</h3>
+          <p>
+            割引や低価格は初回来店には効くが、ブランドの継続理由にはなりにくい。こちらは価格より「初回の安心」「推し/キャスト」「大会への成長導線」で勝つべき。
+          </p>
+        </div>
+        <div class="card">
+          <h3>外部導線が分散している</h3>
+          <p>
+            X、LINE、Instagram、公式サイト、外部掲載が分かれており、全部が綺麗に接続している店ばかりではない。こちらが公式性を整えれば、比較時の信頼で勝てる。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>参照・調査メモ</h2>
+      <p class="small">
+        Xはログイン状態や検索結果によって見える情報が変わるため、下記は2026年6月26日時点で公開検索・公式ページから確認できた範囲。
+        正確な投稿数、インプレッション、クリック数、来店転換率はX APIや店舗側データなしでは未取得。
+      </p>
+      <ul class="source-list">
+        <li><a href="https://x.com/634poker_nagoya" target="_blank" rel="noopener">むさぽ名古屋栄店 X</a>、投稿例: <a href="https://x.com/634poker_nagoya/status/2062259816643625234" target="_blank" rel="noopener">平日13-15時割引</a>、<a href="https://x.com/634poker_nagoya/status/2068146405089407156" target="_blank" rel="noopener">紹介パス/初心者講習0円</a></li>
+        <li><a href="https://x.com/SecondNutsPoker" target="_blank" rel="noopener">Second Nuts X</a>、<a href="https://www.secondnuts-poker.com/" target="_blank" rel="noopener">Second Nuts公式サイト</a>、投稿例: <a href="https://x.com/SecondNutsPoker/status/2064964804603937245" target="_blank" rel="noopener">リポスト対象トーナメント</a></li>
+        <li><a href="https://x.com/NagoyaParadia" target="_blank" rel="noopener">PARADIA NAGOYA X</a>、<a href="https://www.paradia.net/" target="_blank" rel="noopener">PARADIA公式サイト</a>、投稿例: <a href="https://x.com/NagoyaParadia/status/2069963790905680349" target="_blank" rel="noopener">7MAX SHOTCLOCK</a>、<a href="https://x.com/NagoyaParadia/status/2065817236410163659" target="_blank" rel="noopener">Nagoya Super Tournament結果</a></li>
+        <li><a href="https://x.com/jyanken_poker" target="_blank" rel="noopener">じゃんけんポーカー今池店 X</a>、<a href="https://imaike.jyanken-poker.jp/index.html" target="_blank" rel="noopener">じゃんけんポーカー今池店公式サイト</a>、投稿例: <a href="https://x.com/jyanken_poker/status/2069787316282073112/photo/1" target="_blank" rel="noopener">Close/Openと初心者講習案内</a></li>
+        <li><a href="https://x.com/LAG_NAGOYA" target="_blank" rel="noopener">LAG NAGOYA X</a>、<a href="https://lagnagoya.com/" target="_blank" rel="noopener">LAG NAGOYA公式サイト</a>、投稿例: <a href="https://x.com/LAG_NAGOYA/status/2061832737179447614" target="_blank" rel="noopener">80K FREEZEOUT</a>、<a href="https://x.com/LAG_NAGOYA/status/2066537719027880171" target="_blank" rel="noopener">ペア割</a></li>
+        <li><a href="https://x.com/BEGINSpokerosu" target="_blank" rel="noopener">BEGINS poker X</a>、<a href="https://beginspoker.com/" target="_blank" rel="noopener">BEGINS公式サイト</a>、投稿例: <a href="https://x.com/BEGINSpokerosu/status/2052275524941324399" target="_blank" rel="noopener">月間スケジュール</a></li>
+        <li><a href="https://x.com/RoyalFlush_6186" target="_blank" rel="noopener">Royal Flush X</a>、<a href="https://royal-flash.jp/" target="_blank" rel="noopener">Royal Flush公式サイト</a>、投稿例: <a href="https://x.com/RoyalFlush_6186/status/2061125608634208367" target="_blank" rel="noopener">6月前半カレンダー</a></li>
+        <li><a href="https://x.com/CheckRaise6" target="_blank" rel="noopener">Check Raise X</a>、<a href="https://checkraise.jp/feature/%E3%82%B7%E3%83%BC%E3%82%B7%E3%83%A3/" target="_blank" rel="noopener">Check Raise公式サイト</a>、投稿例: <a href="https://x.com/CheckRaise6/status/1844305302344323134" target="_blank" rel="noopener">ノーレーキ/フリーロール案内</a></li>
+        <li><a href="https://x.com/VALHALLA_poker" target="_blank" rel="noopener">VALHALLA X</a>、投稿例: <a href="https://x.com/VALHALLA_poker/status/1976658322779722059" target="_blank" rel="noopener">フリーロール結果</a></li>
+        <li><a href="https://x.com/REXPOKER_NAGOYA" target="_blank" rel="noopener">REX POKER NAGOYA X</a>、<a href="https://www.rexpoker.jp/" target="_blank" rel="noopener">REX公式サイト</a></li>
+        <li><a href="https://x.com/PokerInfoNagoya" target="_blank" rel="noopener">PokerInfoNagoya X</a>、<a href="https://light-three.com/second-nuts-nagoya/" target="_blank" rel="noopener">LightTHREE Second Nuts紹介</a>、<a href="https://chill-lovers.co.jp/poker-times/870/" target="_blank" rel="noopener">POKER TIMES 名古屋店舗紹介</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>関連資料</h2>
+      <ul>
+        <li><a href="../nagoya_x_customer_acquisition_analysis_20260626/index.html">名古屋ギルド / GGPL名古屋 X集客分析</a></li>
+        <li><a href="../nagoya_cast_x_accounts_20260626/index.html">キャストXアカウント調査</a></li>
+        <li><a href="../nagoya_cast_x_funnel_analysis_20260626/index.html">キャストX集客導線分析</a></li>
+        <li><a href="../nagoya_cast_x_improvement_audit_20260626/index.html">キャストX改善点・悪い点指摘</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>作成日: 2026年6月26日（JST） / 形式: 静的HTML / Netlify公開時は index.html をZIPルートに配置。</p>
+    </footer>
+  </main>
+</body>
+</html>

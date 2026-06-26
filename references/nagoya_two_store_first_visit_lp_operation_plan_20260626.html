@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ナゴヤギルド / GGPL名古屋 オンライン集客 実行メモ</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #fbfaf6;
+      --ink: #1f2933;
+      --muted: #647181;
+      --line: #dbe3e7;
+      --green: #166c5c;
+      --gold: #9a5b1f;
+      --blue: #245e7c;
+      --red: #a63e3e;
+      --soft-green: #eef8f4;
+      --soft-gold: #fff5e7;
+      --soft-blue: #eef6fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: #155e75;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 34px 20px 64px;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 920px;
+      margin: 16px 0 0;
+      color: #334155;
+      font-size: 17px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 27px;
+      line-height: 1.34;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+      line-height: 1.42;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .callout {
+      padding: 18px 20px;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      background: var(--soft-green);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .card.green {
+      background: var(--soft-green);
+    }
+
+    .card.gold {
+      background: var(--soft-gold);
+    }
+
+    .card.blue {
+      background: var(--soft-blue);
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    th,
+    td {
+      vertical-align: top;
+      border: 1px solid var(--line);
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f3f7f7;
+      color: #1f2933;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 12px 1.2em;
+      padding: 0;
+    }
+
+    li {
+      margin: 0 0 8px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 3px 8px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .status.p0 {
+      color: var(--red);
+      border-color: rgba(166, 62, 62, 0.28);
+      background: #fff7f7;
+    }
+
+    .status.p1 {
+      color: var(--gold);
+      border-color: rgba(154, 91, 31, 0.28);
+      background: #fffaf2;
+    }
+
+    .status.p2 {
+      color: var(--green);
+      border-color: rgba(22, 108, 92, 0.28);
+      background: #f5fbf8;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        padding: 22px 14px 48px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .grid,
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="kicker">Online Growth Plan</p>
+      <h1>ナゴヤギルド / GGPL名古屋 オンライン集客 実行メモ</h1>
+      <p class="lead">
+        新規集客を上げるために、X以外も含めてオンライン上で何を整えるべきかを整理した。結論だけでなく、なぜその順番にするのかを残す。
+      </p>
+      <nav>
+        <a href="index.html">参考LPへ戻る</a>
+        <a href="#summary">結論</a>
+        <a href="#actions">実行項目</a>
+        <a href="#lp">LP設計</a>
+        <a href="#kpi">KPI</a>
+      </nav>
+    </header>
+
+    <section id="summary">
+      <h2>結論</h2>
+      <div class="callout">
+        <p>
+          最初に作るべきものは、2店舗をそれぞれ宣伝するLPではなく、「名古屋でポーカーを始めたい人を目的別に振り分ける入口LP」。理由は、名古屋ギルドとGGPL名古屋の強みが違うから。名古屋ギルドは初回体験・アミューズメント・名駅側の入りやすさ、GGPL名古屋はトーナメント・本格感・栄側の競技導線が強い。
+        </p>
+        <p>
+          競合は初心者LP、FAQ、LINE、ランキング、予約媒体、Instagramプロフィールで来店前の不安をかなり潰している。名古屋ギルド/GGPLが伸ばすべきなのは、投稿量だけではなく「検索・広告・Googleマップ・Instagramから来た人が、迷わず次の行動を押せる状態」。
+        </p>
+      </div>
+    </section>
+
+    <section id="actions">
+      <h2>オンライン上でやること</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>優先度</th>
+            <th>施策</th>
+            <th>対象</th>
+            <th>なぜ必要か</th>
+            <th>最初に作るもの</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="status p0">P0</span></td>
+            <td>新規向け入口LP</td>
+            <td>2店舗共通</td>
+            <td>
+              検索・広告・Googleマップ・Instagramプロフィールから来た人に、いきなり各店公式サイトを見せると違いが伝わりにくい。入口LPで「初めてなら名駅側」「本格なら栄側」と分ける。
+            </td>
+            <td>今回作成した参考LP</td>
+          </tr>
+          <tr>
+            <td><span class="status p0">P0</span></td>
+            <td>初めての方へページ</td>
+            <td>各店</td>
+            <td>
+              競合は初心者講習、料金、FAQ、来店手順をかなり前面に出している。名古屋ギルド/GGPLも、初心者が来店前に止まる理由を1ページで潰す必要がある。
+            </td>
+            <td>料金、流れ、服装、一人参加、講習、FAQ</td>
+          </tr>
+          <tr>
+            <td><span class="status p0">P0</span></td>
+            <td>LINE導線の目的別化</td>
+            <td>2店舗共通</td>
+            <td>
+              Xは見逃される。新規を戻すにはLINEが必要。登録後に初心者講習、今日の予定、トーナメント、イベント通知、2店舗横断ミッションへ分岐させる。
+            </td>
+            <td>リッチメニュー、初回自動返信、目的別ボタン</td>
+          </tr>
+          <tr>
+            <td><span class="status p1">P1</span></td>
+            <td>Googleビジネスプロフィール改善</td>
+            <td>各店</td>
+            <td>
+              「名古屋 ポーカー」「栄 ポーカー」「名駅 ポーカー」で探す人はGoogleマップも見る。写真、営業時間、口コミ返信、初回向け投稿を整えるだけで来店前の信用が変わる。
+            </td>
+            <td>写真20枚、FAQ投稿、口コミ依頼QR</td>
+          </tr>
+          <tr>
+            <td><span class="status p1">P1</span></td>
+            <td>ショート動画の定番化</td>
+            <td>各店</td>
+            <td>
+              初心者は文章より先に雰囲気で判断する。店までの道順、受付、講習、ゲーム中、決勝卓、次回来店案内を縦動画にする。
+            </td>
+            <td>15秒動画テンプレ10本</td>
+          </tr>
+          <tr>
+            <td><span class="status p1">P1</span></td>
+            <td>検索需要別SEOページ</td>
+            <td>2店舗共通</td>
+            <td>
+              ブランド名検索だけでは新規の上流を取れない。「名古屋 ポーカー 初心者」「栄 ポーカー」「名駅 カジノバー」「ポーカー 一人 初めて」などを受ける。
+            </td>
+            <td>需要語別LP 4本</td>
+          </tr>
+          <tr>
+            <td><span class="status p2">P2</span></td>
+            <td>2店舗横断ミッション</td>
+            <td>2店舗共通</td>
+            <td>
+              名古屋ギルドで慣れてGGPLへ、GGPLのイベント後に名古屋ギルドへ、という回遊を作ると単店集客よりLTVが伸びる。
+            </td>
+            <td>初心者ミッション、2店舗来店特典、月間ランキング</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="lp">
+      <h2>LPに入れるべき要素</h2>
+      <div class="grid">
+        <div class="card green">
+          <span class="label">First View</span>
+          <h3>最初の画面で2択にする</h3>
+          <p>
+            「初めて/名駅側」と「本格/栄側」。店舗名だけを並べると、初めての人は違いがわからない。目的別の言葉に変換する。
+          </p>
+        </div>
+        <div class="card gold">
+          <span class="label">Anxiety</span>
+          <h3>来店前の不安を先に潰す</h3>
+          <p>
+            料金、ルール、一人参加、常連感、服装、所要時間、予約の必要性。魅力訴求より先に不安を消す。
+          </p>
+        </div>
+        <div class="card blue">
+          <span class="label">CTA</span>
+          <h3>公式サイトではなく目的別ボタン</h3>
+          <p>
+            「初心者講習を相談」「今日の予定を見る」「トーナメントを見る」「友人と行く」。行動の言葉にする。
+          </p>
+        </div>
+        <div class="card">
+          <span class="label">Retention</span>
+          <h3>来店後の戻り先を設計する</h3>
+          <p>
+            LPでLINE登録、初回後にミッション通知、GGPLへのステップアップ、ランキング参加へつなげる。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kpi">
+      <h2>KPI</h2>
+      <div class="grid three">
+        <div class="card">
+          <h3>LP</h3>
+          <ul>
+            <li>LP訪問数</li>
+            <li>店舗選択クリック率</li>
+            <li>FAQ到達率</li>
+            <li>LINE/公式サイトクリック率</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>LINE</h3>
+          <ul>
+            <li>新規登録数</li>
+            <li>目的別ボタン押下数</li>
+            <li>初回相談数</li>
+            <li>初回後7日以内の再接触率</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>来店</h3>
+          <ul>
+            <li>初回来店数</li>
+            <li>初心者講習参加数</li>
+            <li>初回から2回目への転換率</li>
+            <li>名古屋ギルドからGGPLへの回遊数</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

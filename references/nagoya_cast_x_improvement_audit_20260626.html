@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ナゴヤギルド / GGPL名古屋 キャストX改善点・悪い点指摘 2026-06-26</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d9e2ec;
+      --soft: #f6f9fc;
+      --paper: #ffffff;
+      --blue: #2563eb;
+      --green: #16805f;
+      --amber: #a96500;
+      --red: #b42318;
+      --violet: #6d4aff;
+      --slate: #344054;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 30px;
+    }
+    .eyebrow {
+      color: var(--red);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 42px 0 14px;
+      font-size: 26px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 940px;
+      color: var(--slate);
+      font-size: 17px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--slate);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    nav {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 28px 0 36px;
+    }
+    nav a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 14px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .callout {
+      border-left: 5px solid var(--blue);
+      background: #f4f7ff;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+    .callout.danger { border-left-color: var(--red); background: #fff7f7; }
+    .callout.warn { border-left-color: var(--amber); background: #fff9ed; }
+    .callout.good { border-left-color: var(--green); background: #f3fbf7; }
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+    }
+    .bad {
+      border-color: #f0c7c1;
+      background: #fffafa;
+    }
+    .good-card {
+      border-color: #c5e6d8;
+      background: #fbfffd;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+      word-break: break-word;
+    }
+    th {
+      background: #eef4fb;
+      color: #24364b;
+      font-weight: 800;
+    }
+    .p1, .p2, .p3 {
+      display: inline-block;
+      min-width: 44px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .p1 { background: #fff0ed; color: var(--red); border: 1px solid #f4beb6; }
+    .p2 { background: #fff8e8; color: var(--amber); border: 1px solid #efcf93; }
+    .p3 { background: #eef4ff; color: var(--blue); border: 1px solid #bfd1ff; }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      margin: 2px 4px 2px 0;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--slate);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .small { color: var(--muted); font-size: 13px; }
+    ul, ol { padding-left: 1.25em; }
+    li { margin: 7px 0; }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 52px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 860px) {
+      .page { padding: 28px 16px 56px; }
+      nav, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        font-size: 13px;
+      }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">Improvement Audit</div>
+      <h1>ナゴヤギルド / GGPL名古屋<br>キャストX改善点・悪い点指摘</h1>
+      <p class="lead">
+        調査時点は2026年6月26日（JST）。前回のキャストX集客導線分析をもとに、
+        集客上の悪い点、改善点、優先順位、修正方法を整理した。
+        目的はキャスト個人の投稿を否定することではなく、個人Xの熱量を来店・LINE追加・再訪へ接続すること。
+      </p>
+      <div class="meta">
+        <span class="pill">対象: キャストX導線</span>
+        <span class="pill">視点: 集客上の損失</span>
+        <span class="pill">白ベースHTML</span>
+        <span class="pill">Netlify向け</span>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#summary">総評</a>
+      <a href="#bad">悪い点</a>
+      <a href="#store">店舗別</a>
+      <a href="#fix">改善策</a>
+      <a href="#priority">優先順位</a>
+    </nav>
+
+    <section id="summary">
+      <h2>総評</h2>
+      <div class="callout danger">
+        <strong>一番悪い点は、キャストXが「来店の空気」は作れているのに、「来店アクション」まで接続されていないこと。</strong><br>
+        今日いる、イベントがある、楽しそう、常連が盛り上がっている、という空気は出ている。
+        しかし、初めての人が次に何をすればよいか、どの投稿を受付で見せればよいか、LINE追加すべきか、予約が必要かが見えにくい。
+        そのため、投稿が認知や好感で止まりやすく、来店数として回収しづらい。
+      </div>
+
+      <div class="grid-3">
+        <div class="card bad">
+          <h3>悪い点</h3>
+          <p>キャスト投稿が個人の熱量に依存していて、店舗の集客導線として設計されていない。</p>
+        </div>
+        <div class="card bad">
+          <h3>損失</h3>
+          <p>Xを見た人が「行きたいかも」で止まり、LINE追加・受付申告・初回来店に変わりにくい。</p>
+        </div>
+        <div class="card good-card">
+          <h3>改善の核</h3>
+          <p>個人の言葉は残し、末尾のCTAと計測だけ店舗側で統一する。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bad">
+      <h2>悪い点と改善点</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>優先度</th>
+            <th>悪い点</th>
+            <th>なぜ問題か</th>
+            <th>改善点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="p1">P1</span></td>
+            <td>キャスト投稿の末尾に明確なCTAがない</td>
+            <td>「楽しそう」「今日いる」は伝わるが、初めての人が次に取る行動が分からない。結果として、投稿が来店直前で止まる。</td>
+            <td>全員の投稿末尾に「初めての方はこの投稿を受付で見せてください」「LINEはこちら」「初心者講習できます」のどれかを入れる。</td>
+          </tr>
+          <tr>
+            <td><span class="p1">P1</span></td>
+            <td>投稿が計測できない</td>
+            <td>どのキャスト、どの投稿型、どのイベントが来店につながったか分からない。成果が見えないと、良い投稿も再現できない。</td>
+            <td>個人名ではなく投稿型でコード化する。例: NG-FIRST、NG-EVENT、GG-WATCH、GG-DEEP。</td>
+          </tr>
+          <tr>
+            <td><span class="p1">P1</span></td>
+            <td>公式アカウントがキャスト投稿を受け止める設計が弱い</td>
+            <td>個人アカウントは強いが、退店・休み・投稿停止で導線が切れる。公式が受け皿にならないと資産化しない。</td>
+            <td>公式が週1で「今週の案内キャスト」「初心者講習できる日」「観戦だけOKの日」をまとめる。</td>
+          </tr>
+          <tr>
+            <td><span class="p2">P2</span></td>
+            <td>初心者向け情報が投稿ごとに散らばっている</td>
+            <td>初心者は「いくら」「予約」「所要時間」「一人OK」「服装」「ルール説明」を知りたい。これが毎回見えないと不安が残る。</td>
+            <td>2店舗共通の「初めての流れ」画像を作り、キャストが投稿に添付できるようにする。</td>
+          </tr>
+          <tr>
+            <td><span class="p2">P2</span></td>
+            <td>ナゴヤギルドとGGPL名古屋の役割分担が個人投稿上で明文化されていない</td>
+            <td>2店舗が近い関係に見える一方、初めての人はどちらに行けばよいか分からない。</td>
+            <td>「初回は名駅ナゴヤギルド」「大会挑戦は栄GGPL」のように、投稿内で階段を作る。</td>
+          </tr>
+          <tr>
+            <td><span class="p2">P2</span></td>
+            <td>GGPL名古屋側は専門語が強くなりやすい</td>
+            <td>トーナメント、レイトレジスト、Deep、JOPT、チップ量は経験者には刺さるが、未経験者には読めない。</td>
+            <td>投稿冒頭に「初心者向け」「経験者向け」「観戦だけOK」の分類を入れる。</td>
+          </tr>
+          <tr>
+            <td><span class="p2">P2</span></td>
+            <td>ナゴヤギルド側は日常・出勤投稿が来店説明に接続しきっていない</td>
+            <td>人の顔は見えるが、初回来店の流れが見えないと、外部新規は動きづらい。</td>
+            <td>「今日います」に加えて「初めての方は何時から説明できます」を入れる。</td>
+          </tr>
+          <tr>
+            <td><span class="p3">P3</span></td>
+            <td>DM依存になりやすい</td>
+            <td>DMは個人には便利だが、店舗側で計測しにくく、返信負荷も偏る。</td>
+            <td>DM相談は残してよいが、最終導線はLINE・受付・公式フォームへ戻す。</td>
+          </tr>
+          <tr>
+            <td><span class="p3">P3</span></td>
+            <td>プロフィール表記が統一されていない</td>
+            <td>店舗名、公式ハンドル、初心者講習可否、DM可否がばらつくと、検索で見つけても公式性が弱い。</td>
+            <td>最低限「店舗公式ハンドル」「DM可否」「初めての人向け案内の有無」を統一する。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="store">
+      <h2>店舗別の指摘</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>ナゴヤギルドの悪い点</h3>
+          <ul>
+            <li>「今日いる」「イベントいる」は強いが、初めての人向けの手順説明が弱い。</li>
+            <li>ポーカー以外も遊べる強みがあるのに、キャスト投稿で「ポーカーを知らなくても入れる」まで毎回言えていない。</li>
+            <li>旧X導線問題が残ると、キャスト投稿で興味を持った人が公式確認時に不安になる。</li>
+          </ul>
+          <h3>改善点</h3>
+          <ul>
+            <li>キャスト出勤投稿に「初めての人はこの投稿を見せてください」を追加。</li>
+            <li>「ポーカー以外でも遊べます」をキャスト投稿に混ぜる。</li>
+            <li>ナゴヤギルド新公式Xへの導線を全キャストプロフィールで統一。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>GGPL名古屋の悪い点</h3>
+          <ul>
+            <li>大会熱は強いが、初心者には専門語が多く、参加難易度が読みにくい。</li>
+            <li>観戦・飲み・スポーツ放映の入口が良いのに、毎回の型として固定されていない。</li>
+            <li>キャスト投稿が公式のテーブル状況やLINE追加へ接続しきっていない。</li>
+          </ul>
+          <h3>改善点</h3>
+          <ul>
+            <li>トーナメント投稿に「初心者向け / 経験者向け / 観戦だけOK」のラベルを付ける。</li>
+            <li>観戦入口の投稿を週1で固定運用する。</li>
+            <li>キャスト投稿の最後に「今日のテーブル状況は公式へ」を入れる。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="fix">
+      <h2>すぐ直すべき投稿フォーマット</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>用途</th>
+            <th>悪い例</th>
+            <th>改善例</th>
+            <th>なぜ改善になるか</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>出勤告知</td>
+            <td>「今日います」だけ</td>
+            <td>「今日16-23でいます。初めての方もルール説明できます。この投稿を受付で見せてください」</td>
+            <td>来店理由と受付申告が同時に作れる。</td>
+          </tr>
+          <tr>
+            <td>トーナメント告知</td>
+            <td>大会名とリンクだけ</td>
+            <td>「今日は経験者向けDeepです / 初級者も入りやすいです」を冒頭に入れる</td>
+            <td>初心者が参加可否を判断できる。</td>
+          </tr>
+          <tr>
+            <td>イベント告知</td>
+            <td>イベント名だけ</td>
+            <td>「ポーカーしなくてもOK。大富豪/BJ/観戦だけでも寄れます」を追加</td>
+            <td>非ポーカー層の入口になる。</td>
+          </tr>
+          <tr>
+            <td>観戦導線</td>
+            <td>「放映します」だけ</td>
+            <td>「観戦だけOK / 一人参加OK / 観戦後に無料初心者講習できます」</td>
+            <td>GGPLの硬さを崩し、未経験者を取り込める。</td>
+          </tr>
+          <tr>
+            <td>2店舗横断</td>
+            <td>各店舗が別々に投稿</td>
+            <td>「初めてはナゴヤギルド、次の大会挑戦はGGPL名古屋」</td>
+            <td>2店舗を競合ではなく成長導線にできる。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="priority">
+      <h2>優先順位</h2>
+      <ol>
+        <li>
+          <strong>キャスト投稿の共通CTAを決める。</strong><br>
+          まずは「初めての方はこの投稿を受付で見せてください」。これが一番早く、店頭計測にもつながる。
+        </li>
+        <li>
+          <strong>初めての流れ画像を2店舗分作る。</strong><br>
+          料金、所要時間、一人OK、予約要否、LINE、声をかける相手を1枚にまとめる。
+        </li>
+        <li>
+          <strong>投稿型コードを作る。</strong><br>
+          NG-FIRST、NG-EVENT、GG-WATCH、GG-DEEP、GG-JOPT。個人別ではなく用途別にする。
+        </li>
+        <li>
+          <strong>公式が週1でキャスト投稿を回収する。</strong><br>
+          個人の投稿を公式が引用し、公式側の固定導線へ戻す。
+        </li>
+        <li>
+          <strong>ナゴヤギルドとGGPL名古屋の役割を毎週見せる。</strong><br>
+          「入口の名駅」「挑戦の栄」という分担を、キャスト投稿でも見えるようにする。
+        </li>
+      </ol>
+
+      <div class="callout good">
+        <strong>最短でやるなら。</strong><br>
+        全キャストに長いルールを配る必要はない。まずは投稿末尾の1行だけ統一する。
+        「初めての方はこの投稿を受付で見せてください」。この一文だけで、Xが来店計測に変わる。
+      </div>
+    </section>
+
+    <section>
+      <h2>やってはいけないこと</h2>
+      <ul>
+        <li>キャスト全員に同じ硬い宣伝文を投稿させること。個人Xの強みが消える。</li>
+        <li>DMだけで予約や案内を完結させること。店舗側で数字が拾えなくなる。</li>
+        <li>大会名・専門語だけを増やすこと。経験者には便利だが、新規は離れる。</li>
+        <li>キャスト個人に集客責任を丸投げすること。公式アカウントと店頭オペレーションが受け皿になるべき。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>参照・前提</h2>
+      <ul>
+        <li><a href="../nagoya_cast_x_accounts_20260626/index.html">キャストXアカウント調査</a></li>
+        <li><a href="../nagoya_cast_x_funnel_analysis_20260626/index.html">キャストX集客導線分析</a></li>
+        <li><a href="../nagoya_x_customer_acquisition_analysis_20260626/index.html">名古屋ギルド / GGPL名古屋 X集客分析</a></li>
+        <li><a href="https://x.com/nagoyaguild_" target="_blank" rel="noopener">ナゴヤギルド公式X</a></li>
+        <li><a href="https://x.com/GGPLnagoya" target="_blank" rel="noopener">GGPL名古屋公式X</a></li>
+      </ul>
+      <p class="small">
+        この指摘は公開X情報と前回作成した調査HTMLをもとにした集客上の見立て。
+        実施前に、現在の所属、出勤状況、本人の投稿方針、店舗の運用ルールを確認する。
+      </p>
+    </section>
+
+    <footer>
+      <p>作成日: 2026年6月26日（JST） / 形式: 静的HTML / Netlify公開時は index.html をZIPルートに配置。</p>
+    </footer>
+  </main>
+</body>
+</html>

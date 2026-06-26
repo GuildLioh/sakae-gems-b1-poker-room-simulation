@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>名古屋のポーカー初回来店ガイド | ナゴヤギルド / GGPL名古屋</title>
+  <meta name="description" content="名古屋でポーカーを始めたい人向けの初回来店ガイド。名駅側のナゴヤギルド、栄側のGGPL名古屋から目的に合わせて選べます。">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #fbfaf6;
+      --ink: #1e2a36;
+      --muted: #5d6877;
+      --line: #d9e2e5;
+      --green: #166c5c;
+      --green-soft: #edf8f4;
+      --gold: #a96823;
+      --gold-soft: #fff5e6;
+      --blue: #245e7c;
+      --blue-soft: #eef6fb;
+      --red: #a63e3e;
+      --shadow: 0 12px 30px rgba(31, 41, 51, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 180px;
+    }
+
+    .brand b {
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .button.primary {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .button.gold {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: url("assets/hero-poker-table.svg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 44%, rgba(255, 255, 255, 0.56) 100%);
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 72px 20px 78px;
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: 48px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: #344453;
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 830px;
+      margin-top: 28px;
+    }
+
+    .trust-row span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 10px;
+      border: 1px solid rgba(22, 108, 92, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #244438;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    main {
+      background: #fff;
+    }
+
+    section {
+      padding: 58px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.42;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .route {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 430px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .route.guild {
+      background: var(--green-soft);
+    }
+
+    .route.ggpl {
+      background: var(--gold-soft);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 30px;
+      padding: 4px 9px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--green);
+      border: 1px solid rgba(22, 108, 92, 0.22);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .route.ggpl .label {
+      color: var(--gold);
+      border-color: rgba(169, 104, 35, 0.26);
+    }
+
+    .route h3 {
+      margin-top: 16px;
+      font-size: 26px;
+    }
+
+    .route ul,
+    .flow ol,
+    .checklist {
+      margin: 12px 0 0 1.1em;
+      padding: 0;
+    }
+
+    .route li,
+    .flow li,
+    .checklist li {
+      margin: 0 0 8px;
+    }
+
+    .route-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .mini {
+      min-height: 170px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .mini strong {
+      display: block;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .flow-step {
+      min-height: 250px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .flow-step h3 {
+      margin-top: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .faq {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    details p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .cta-band {
+      background: #f5faf8;
+    }
+
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: center;
+      padding: 26px;
+      border: 1px solid rgba(22, 108, 92, 0.25);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      padding: 26px 20px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 880px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero::after {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .route-grid,
+      .compare,
+      .flow,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 42px 16px;
+      }
+
+      .hero-inner {
+        padding: 52px 16px 58px;
+      }
+
+      .route {
+        min-height: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="ページ上部へ">
+        <b>名古屋ポーカー初回来店ガイド</b>
+        <span>ナゴヤギルド / GGPL名古屋</span>
+      </a>
+      <nav class="nav" aria-label="ページ内ナビゲーション">
+        <a href="#choose">選び方</a>
+        <a href="#flow">初回の流れ</a>
+        <a href="#faq">よくある不安</a>
+        <a href="operation_plan.html">運用メモ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="名古屋のポーカー初回来店ガイド">
+      <div class="hero-inner">
+        <p class="kicker">参考LP / 新規集客向け</p>
+        <h1>名古屋のポーカー初回来店ガイド</h1>
+        <p class="hero-copy">
+          初めてポーカーを遊ぶ人は名駅側のナゴヤギルドへ。トーナメントや本格的なポーカー体験をしたい人は栄側のGGPL名古屋へ。目的に合わせて入口を選べるようにすることで、来店前の不安を減らします。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#choose">自分に合う入口を選ぶ</a>
+          <a class="button" href="#flow">初回の流れを見る</a>
+        </div>
+        <div class="trust-row" aria-label="安心材料">
+          <span>初心者向け説明</span>
+          <span>一人参加の不安を解消</span>
+          <span>料金と流れを事前確認</span>
+          <span>名駅側と栄側で目的別に選択</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="choose">
+      <div class="section-inner">
+        <h2>まずは、今日の目的で選ぶ</h2>
+        <p class="lead">
+          2店舗を同じように見せると、初めての人は迷います。このLPでは「入口」と「深化先」を分け、最初の来店理由をはっきりさせます。
+        </p>
+
+        <div class="route-grid">
+          <article class="route guild">
+            <div>
+              <span class="label">はじめて / 名駅側</span>
+              <h3>ナゴヤギルド</h3>
+              <p>
+                ポーカーが初めて、カジノゲームも含めて遊びたい、友人と気軽に行きたい人向けの入口。まずはルールや雰囲気に慣れることを目的にします。
+              </p>
+              <ul>
+                <li>ポーカー未経験でも入りやすい説明導線</li>
+                <li>仕事帰り・友人同士・観光客に向いた入口</li>
+                <li>ポーカー以外の遊び方も見せやすい</li>
+              </ul>
+            </div>
+            <div class="route-actions">
+              <a class="button primary" href="https://nagoyaguild.com/">公式サイトを見る</a>
+              <a class="button" href="#faq">不安を確認する</a>
+            </div>
+          </article>
+
+          <article class="route ggpl">
+            <div>
+              <span class="label">本格ポーカー / 栄側</span>
+              <h3>GGPL名古屋</h3>
+              <p>
+                トーナメントに出たい、GGPoker文脈で遊びたい、競技寄りのポーカーに進みたい人向けの深化先。初回でも講習と参加導線を前面に出します。
+              </p>
+              <ul>
+                <li>トーナメント予定やイベントを見て選べる</li>
+                <li>本格感を出しつつ、初回導線で怖さを減らす</li>
+                <li>配信・結果・ランキングへ展開しやすい</li>
+              </ul>
+            </div>
+            <div class="route-actions">
+              <a class="button gold" href="https://ggpokerlive.jp/nagoya/">公式サイトを見る</a>
+              <a class="button" href="#faq">不安を確認する</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <h2>来店前に知りたいことを、先に見せる</h2>
+        <p class="lead">
+          新規集客で大事なのは、店の魅力を盛ることよりも、予約前に止まる理由を消すことです。料金、所要時間、服装、一人参加、ルール説明、当日参加の可否を先に出します。
+        </p>
+        <div class="compare">
+          <div class="mini">
+            <strong>料金の不安</strong>
+            入口料金、初回予算、追加でかかる可能性を明記。金額が見えないと、初心者は来店直前で止まります。
+          </div>
+          <div class="mini">
+            <strong>ルールの不安</strong>
+            ルールを知らなくても説明を受けられること、最初に覚える範囲を明記。動画で見せるとさらに強いです。
+          </div>
+          <div class="mini">
+            <strong>一人参加の不安</strong>
+            一人でも大丈夫、友人同士でも大丈夫、観戦からでも相談可能と書く。ポーカーは心理的な入口が重いです。
+          </div>
+          <div class="mini">
+            <strong>常連感の不安</strong>
+            初回の流れ、スタッフへの声かけ方、混みやすい時間を示す。店内に入る前の緊張を減らせます。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <div class="section-inner">
+        <h2>初回来店の流れ</h2>
+        <p class="lead">
+          LPでこの流れを見せるだけで、来店ハードルはかなり下がります。実店舗側では、この3ステップに合わせてLINE自動応答やショート動画を用意します。
+        </p>
+        <div class="flow">
+          <article class="flow-step">
+            <span class="num">01</span>
+            <h3>目的を選ぶ</h3>
+            <p>気軽に体験したいならナゴヤギルド。本格ポーカーやトーナメントならGGPL名古屋。迷った人には初心者向け入口を先に案内します。</p>
+          </article>
+          <article class="flow-step">
+            <span class="num">02</span>
+            <h3>来店前に確認する</h3>
+            <p>料金、営業時間、当日のイベント、初心者講習の有無を確認。LINEや公式サイトへ進む前に、最低限の不安をLP上で解消します。</p>
+          </article>
+          <article class="flow-step">
+            <span class="num">03</span>
+            <h3>次回来店につなげる</h3>
+            <p>初回後に、初心者ミッション、次回イベント、ランキング、GGPLへのステップアップを案内。Xを見ない人にもLINEで戻る理由を届けます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-inner split">
+        <div>
+          <h2>よくある不安</h2>
+          <p class="lead">
+            新規向けLPでは、このFAQを目立つ場所に置きます。競合が強いのは、店名より先に「初心者でも行ける理由」を説明している点です。
+          </p>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>ポーカーを一度もやったことがなくても大丈夫ですか？</summary>
+            <p>大丈夫です。LPでは、ルールを知らない人向けの説明、最初に覚えること、初心者講習の受け方を明記します。実運用では、店ごとの講習内容に合わせて表記を調整します。</p>
+          </details>
+          <details>
+            <summary>一人で行っても浮きませんか？</summary>
+            <p>一人参加の不安は新規の大きな離脱理由です。LPでは、一人参加歓迎、スタッフへの声かけ方、初回に座るテーブルの案内を入れます。</p>
+          </details>
+          <details>
+            <summary>どちらの店舗に行けばいいですか？</summary>
+            <p>初めてで気軽に遊びたい場合はナゴヤギルド。本格的にトーナメントへ進みたい場合はGGPL名古屋。迷った人には、まず初心者向け入口を案内します。</p>
+          </details>
+          <details>
+            <summary>予約や問い合わせはどこからすればいいですか？</summary>
+            <p>実公開時は各店のLINE、公式サイト、Googleビジネスプロフィールへの導線を設置します。この参考LPでは公式サイトへのリンクを置いています。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="section-inner">
+        <div class="cta-box">
+          <div>
+            <h2>まず作るべきLPは、2店舗を競わせない入口</h2>
+            <p>
+              名古屋ギルドとGGPL名古屋を別々に広告するだけでは、初心者には違いが伝わりにくい。入口LPで目的別に振り分け、来店後はLINEとランキングで戻す設計にします。
+            </p>
+          </div>
+          <div class="route-actions">
+            <a class="button primary" href="https://nagoyaguild.com/">ナゴヤギルド公式</a>
+            <a class="button gold" href="https://ggpokerlive.jp/nagoya/">GGPL名古屋公式</a>
+            <a class="button" href="operation_plan.html">運用メモを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>このページは新規集客用LPの参考案です。実公開時は料金、営業時間、初心者講習、LINEリンク、キャンペーン条件を各店の最新情報に合わせて差し替えてください。</p>
+    </div>
+  </footer>
+</body>
+</html>

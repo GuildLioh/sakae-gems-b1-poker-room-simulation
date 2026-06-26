@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ナゴヤギルド / GGPL名古屋 キャストXアカウント調査 2026-06-26</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d8e0ea;
+      --soft: #f6f9fc;
+      --blue: #2563eb;
+      --green: #16805f;
+      --amber: #a96500;
+      --red: #ba2f2f;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 30px;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 40px 0 12px;
+      font-size: 26px;
+      line-height: 1.24;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 930px;
+      color: #344054;
+      font-size: 17px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: #344054;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .callout {
+      border-left: 5px solid var(--blue);
+      background: #f4f7ff;
+      border-radius: 6px;
+      padding: 15px 18px;
+      margin: 18px 0;
+    }
+    .callout.warn {
+      border-left-color: var(--amber);
+      background: #fff9ed;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .card strong {
+      display: block;
+      font-size: 24px;
+      color: var(--blue);
+      line-height: 1.2;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+      word-break: break-word;
+    }
+    th {
+      background: #eef4fb;
+      color: #24364b;
+      font-weight: 800;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: #344054;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .high { color: var(--green); font-weight: 800; }
+    .mid { color: var(--amber); font-weight: 800; }
+    .low { color: var(--red); font-weight: 800; }
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    ul { padding-left: 1.25em; }
+    li { margin: 7px 0; }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 48px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 860px) {
+      .page { padding: 28px 16px 56px; }
+      .grid { grid-template-columns: 1fr; }
+      table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        font-size: 13px;
+      }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">Public X Account Research</div>
+      <h1>ナゴヤギルド / GGPL名古屋<br>キャストXアカウント調査</h1>
+      <p class="lead">
+        調査時点は2026年6月26日（JST）。公開Xプロフィール、X検索結果、外部Xビューアの公開スニペットから、
+        ナゴヤギルド / GGPL名古屋で勤務・所属・出勤・ヘルプが読み取れる個人アカウントを整理した。
+        退店、移籍、アカウント名変更、非公開化は起こり得るため、運用前には店舗側で最終確認が必要。
+      </p>
+      <div class="meta">
+        <span class="pill">公式アカウントは除外</span>
+        <span class="pill">アンバサダーは別枠</span>
+        <span class="pill">公開表示ベース</span>
+        <span class="pill">Netlify向けHTML</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>集計</h2>
+      <div class="grid">
+        <div class="card"><strong>12</strong>ナゴヤギルド側で確認</div>
+        <div class="card"><strong>14</strong>GGPL名古屋側で確認</div>
+        <div class="card"><strong>1</strong>2店舗横断として確認</div>
+      </div>
+      <div class="callout warn">
+        <strong>扱い方。</strong>
+        このリストは「公開プロフィール上で店舗との関係が読めるアカウント」の一次収集。
+        来店誘導や引用RTで使う前に、現在も所属・出勤しているか、本人/店舗の運用方針と合うかを確認する。
+      </div>
+    </section>
+
+    <section>
+      <h2>ナゴヤギルド関連</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>表示名</th>
+            <th>Xアカウント</th>
+            <th>公開表示から読める関係</th>
+            <th>確認度</th>
+            <th>集客での使い方</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ひな＠ナゴヤギルド＆GGPL名古屋</td>
+            <td><a href="https://x.com/hina_AGNagoya" target="_blank" rel="noopener">@hina_AGNagoya</a></td>
+            <td>プロフィールに「ナゴギ / GG名古屋 / 2店舗専属ヘルプディーラー」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">2店舗横断</span> 公式間の橋渡し、初心者導線、相互送客投稿向き。</td>
+          </tr>
+          <tr>
+            <td>れいな【ぴんまる】</td>
+            <td><a href="https://x.com/reinapinmaru" target="_blank" rel="noopener">@reinapinmaru</a></td>
+            <td>プロフィールに「ナゴヤギルドの社員」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">店舗人格</span> 新規向け安心感、イベント告知、スタッフ紹介向き。</td>
+          </tr>
+          <tr>
+            <td>くらげ ナゴヤギルド</td>
+            <td><a href="https://x.com/kurage_AGNagoya" target="_blank" rel="noopener">@kurage_AGNagoya</a></td>
+            <td>プロフィールに「@NagoyaGuild_ のMIX姫」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">常連接点</span> MIX/イベント/キャラクター性のある投稿向き。</td>
+          </tr>
+          <tr>
+            <td>すい ナゴヤギルド</td>
+            <td><a href="https://x.com/suisuicat_ng" target="_blank" rel="noopener">@suisuicat_ng</a></td>
+            <td>プロフィールに「ナゴヤギルドのディーラー」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">新人/出勤</span> 初心者講習や「今日います」系投稿向き。</td>
+          </tr>
+          <tr>
+            <td>りあ ナゴヤギルド</td>
+            <td><a href="https://x.com/_ria_AGNagoya" target="_blank" rel="noopener">@_ria_AGNagoya</a></td>
+            <td>プロフィールにナゴヤギルド公式ハンドルと在店確認を促す表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">出勤確認</span> 指名・来店前確認・常連接点向き。</td>
+          </tr>
+          <tr>
+            <td>黄泉 ナゴヤギルド</td>
+            <td><a href="https://x.com/yomi_AGNagoya" target="_blank" rel="noopener">@yomi_AGNagoya</a></td>
+            <td>プロフィールにナゴヤギルド公式ハンドルと店舗関連表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">イベント</span> 当日出勤や店舗イベントの拡散向き。</td>
+          </tr>
+          <tr>
+            <td>らみ@ナゴヤギルド</td>
+            <td><a href="https://x.com/rami_AGNagoya" target="_blank" rel="noopener">@rami_AGNagoya</a></td>
+            <td>プロフィールに「@nagoyaguild_」表記。検索結果でもナゴヤギルド名で表示。</td>
+            <td class="high">高</td>
+            <td><span class="tag">当日投稿</span> 「今日います」型の来店促進向き。</td>
+          </tr>
+          <tr>
+            <td>びびにゃんこ ナゴヤギルド</td>
+            <td><a href="https://x.com/AGnagoya_bibi" target="_blank" rel="noopener">@AGnagoya_bibi</a></td>
+            <td>プロフィールに「@nagoyaguild_」表記。検索結果でもナゴヤギルド関連として表示。</td>
+            <td class="high">高</td>
+            <td><span class="tag">DM導線</span> 個人来店導線に使う場合は店舗確認後に。</td>
+          </tr>
+          <tr>
+            <td>りゆさん@ナゴヤギルド</td>
+            <td><a href="https://x.com/AGnagoya_riyuu" target="_blank" rel="noopener">@AGnagoya_riyuu</a></td>
+            <td>プロフィールに「@nagoyaguild_にいます」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">在店告知</span> 新人/出勤/BD系導線の確認候補。</td>
+          </tr>
+          <tr>
+            <td>ねね@ナゴヤギルド</td>
+            <td><a href="https://x.com/chimarinpen_ng" target="_blank" rel="noopener">@chimarinpen_ng</a></td>
+            <td>検索結果の表示名が「ねね@ナゴヤギルド」。プロフィールに店舗リンクらしき導線。</td>
+            <td class="mid">中</td>
+            <td><span class="tag">要確認</span> 店舗側で現在所属を確認してから引用。</td>
+          </tr>
+          <tr>
+            <td>あむ@ナゴヤギルド</td>
+            <td><a href="https://x.com/amu_AGNagoya" target="_blank" rel="noopener">@amu_AGNagoya</a></td>
+            <td>プロフィールに「@nagoyaguild_ 新人ディーラー」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">新人訴求</span> 初心者講習、初回来店の安心感づくり向き。</td>
+          </tr>
+          <tr>
+            <td>もか</td>
+            <td><a href="https://x.com/mk_nyux" target="_blank" rel="noopener">@mk_nyux</a></td>
+            <td>検索結果でナゴヤギルド関連候補として表示。プロフィールは「カード配り係」表記。</td>
+            <td class="mid">中</td>
+            <td><span class="tag">要確認</span> 所属店舗を確認してから集客リストに入れる。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>GGPL名古屋関連</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>表示名</th>
+            <th>Xアカウント</th>
+            <th>公開表示から読める関係</th>
+            <th>確認度</th>
+            <th>集客での使い方</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ひな＠ナゴヤギルド＆GGPL名古屋</td>
+            <td><a href="https://x.com/hina_AGNagoya" target="_blank" rel="noopener">@hina_AGNagoya</a></td>
+            <td>プロフィールに「ナゴギ / GG名古屋 / 2店舗専属ヘルプディーラー」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">2店舗横断</span> GGPLからナゴヤギルド、または逆方向の送客向き。</td>
+          </tr>
+          <tr>
+            <td>あんじゅ@GGPL名古屋</td>
+            <td><a href="https://x.com/GGPL_ange" target="_blank" rel="noopener">@GGPL_ange</a></td>
+            <td>プロフィールに「GGPL名古屋の1番下っ端」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">親近感</span> 初心者/日常/大会周辺の温度感づくり向き。</td>
+          </tr>
+          <tr>
+            <td>じん@GGPL名古屋</td>
+            <td><a href="https://x.com/jin_ggnagoya" target="_blank" rel="noopener">@jin_ggnagoya</a></td>
+            <td>プロフィールに「@ggplnagoya」表記。投稿上でも出勤・店舗関連の文脈が確認できる。</td>
+            <td class="high">高</td>
+            <td><span class="tag">競技寄り</span> 大会・プレイヤー/ディーラー両面の拡散向き。</td>
+          </tr>
+          <tr>
+            <td>白@GGPL名古屋</td>
+            <td><a href="https://x.com/shiro_ggpl" target="_blank" rel="noopener">@shiro_ggpl</a></td>
+            <td>検索結果の表示名が「白@GGPL名古屋」。GGPL関連投稿が確認できる。</td>
+            <td class="mid">中</td>
+            <td><span class="tag">要確認</span> 現在所属と役割を確認してから引用。</td>
+          </tr>
+          <tr>
+            <td>まとん＠GGPLNAGOYA</td>
+            <td><a href="https://x.com/maton_GGNAGOYA" target="_blank" rel="noopener">@maton_GGNAGOYA</a></td>
+            <td>プロフィールに「@GGPLNagoya にいる見習いひつじ」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">新人/見習い</span> 柔らかい来店導線、日常投稿向き。</td>
+          </tr>
+          <tr>
+            <td>うの GGPL名古屋</td>
+            <td><a href="https://x.com/Unochan_ggpl" target="_blank" rel="noopener">@Unochan_ggpl</a></td>
+            <td>プロフィールに「@ggplnagoya」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">店舗日常</span> JOPT Gamesや当日イベントの軽い拡散向き。</td>
+          </tr>
+          <tr>
+            <td>なな GGPL名古屋</td>
+            <td><a href="https://x.com/Nana_ggnagoya" target="_blank" rel="noopener">@Nana_ggnagoya</a></td>
+            <td>プロフィールに「@GGPLnagoya」と出勤日らしき日付表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">出勤告知</span> いついるかが見えやすく、来店前の安心材料になる。</td>
+          </tr>
+          <tr>
+            <td>さりー@GGPL名古屋</td>
+            <td><a href="https://x.com/Sally_ggpl" target="_blank" rel="noopener">@Sally_ggpl</a></td>
+            <td>プロフィールに「@GGPLnagoya のさりー」「サブチーフ」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">管理/信頼</span> 公式性の補強、初心者案内、イベント告知向き。</td>
+          </tr>
+          <tr>
+            <td>みゅー GGPL名古屋</td>
+            <td><a href="https://x.com/GGPLmyu" target="_blank" rel="noopener">@GGPLmyu</a></td>
+            <td>検索結果で「GGPL名古屋新人ディ」表記。</td>
+            <td class="mid">中</td>
+            <td><span class="tag">要確認</span> 他店舗表記も見えるため、現在の主所属を確認。</td>
+          </tr>
+          <tr>
+            <td>こば@GGPL名古屋</td>
+            <td><a href="https://x.com/koba_ggpl" target="_blank" rel="noopener">@koba_ggpl</a></td>
+            <td>プロフィールに「ディーラー素人。@GGPLnagoya」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">初心者目線</span> 新人ディーラーとして親近感のある発信向き。</td>
+          </tr>
+          <tr>
+            <td>まいな!!!GGPL名古屋</td>
+            <td><a href="https://x.com/maina_ggpl" target="_blank" rel="noopener">@maina_ggpl</a></td>
+            <td>プロフィールに「@GGPLnagoya にいます」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">在店告知</span> 当日投稿、個人来店導線の確認候補。</td>
+          </tr>
+          <tr>
+            <td>かなで@GGPL名古屋</td>
+            <td><a href="https://x.com/kanade_ggpl" target="_blank" rel="noopener">@kanade_ggpl</a></td>
+            <td>プロフィールに「@GGPLnagoya の肝臓担当」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">日常/飲み</span> 飲食・観戦・賑わい投稿との相性が良い。</td>
+          </tr>
+          <tr>
+            <td>ショート@GGPLnagoya</td>
+            <td><a href="https://x.com/shoto_ggpl" target="_blank" rel="noopener">@shoto_ggpl</a></td>
+            <td>プロフィールに「@GGPLnagoyaでディーラー」表記。</td>
+            <td class="high">高</td>
+            <td><span class="tag">ディーラー</span> トーナメント/リングの当日稼働投稿向き。</td>
+          </tr>
+          <tr>
+            <td>いおり</td>
+            <td><a href="https://x.com/GGPL_iori" target="_blank" rel="noopener">@GGPL_iori</a></td>
+            <td>検索結果の関連候補に表示。プロフィール本文は今回の公開検索だけでは十分に確認できず。</td>
+            <td class="low">低</td>
+            <td><span class="tag">保留</span> 店舗側で現在所属を確認するまで本リスト外運用。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>別枠: 公式・アンバサダー・元/移籍候補</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>表示名</th>
+            <th>Xアカウント</th>
+            <th>扱い</th>
+            <th>理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ナゴヤギルド</td>
+            <td><a href="https://x.com/nagoyaguild_" target="_blank" rel="noopener">@nagoyaguild_</a></td>
+            <td>公式</td>
+            <td>個人キャストではなく店舗公式。キャスト投稿を引用する中心アカウント。</td>
+          </tr>
+          <tr>
+            <td>GGPL名古屋</td>
+            <td><a href="https://x.com/GGPLnagoya" target="_blank" rel="noopener">@GGPLnagoya</a></td>
+            <td>公式</td>
+            <td>個人キャストではなく店舗公式。大会/テーブル状況/公式告知の起点。</td>
+          </tr>
+          <tr>
+            <td>和葉（和まっちょ♪）</td>
+            <td><a href="https://x.com/kazuhaQQ" target="_blank" rel="noopener">@kazuhaQQ</a></td>
+            <td>アンバサダー</td>
+            <td>プロフィールに2店舗の公式アンバサダー・新規割引導線。キャストではなく送客協力者として別管理。</td>
+          </tr>
+          <tr>
+            <td>くろ(すけ)</td>
+            <td><a href="https://x.com/96_suke_00" target="_blank" rel="noopener">@96_suke_00</a></td>
+            <td>元/移籍候補</td>
+            <td>プロフィールに「静岡→名古屋→新宿」とあり、現所属はGG新宿側に見える。</td>
+          </tr>
+          <tr>
+            <td>月楓</td>
+            <td><a href="https://x.com/Tsukika_ggsj" target="_blank" rel="noopener">@Tsukika_ggsj</a></td>
+            <td>元/移籍候補</td>
+            <td>検索結果でGGPL名古屋からRe:Poker等への移動文脈が見えるため、現行リストには入れない。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>運用メモ</h2>
+      <ul>
+        <li>キャスト投稿を公式が引用する場合は、先に本人/店舗の方針を確認する。</li>
+        <li>新規集客に使うなら「出勤」「初心者講習できます」「観戦だけOK」「今日のトナメ」の4型に分ける。</li>
+        <li>ナゴヤギルドはキャラクター/初回来店導線、GGPL名古屋はトーナメント/リング/観戦導線で分担する。</li>
+        <li>紹介コードを作る場合は、個人名をそのまま使うより、店舗側で管理できる短いコードにする。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>主な参照元</h2>
+      <ul>
+        <li><a href="https://x.com/hina_AGNagoya" target="_blank" rel="noopener">ひな＠ナゴヤギルド＆GGPL名古屋</a></li>
+        <li><a href="https://x.com/reinapinmaru" target="_blank" rel="noopener">れいな【ぴんまる】@ナゴヤギルド</a></li>
+        <li><a href="https://x.com/kurage_AGNagoya" target="_blank" rel="noopener">くらげ ナゴヤギルド</a></li>
+        <li><a href="https://x.com/suisuicat_ng" target="_blank" rel="noopener">すい ナゴヤギルド</a></li>
+        <li><a href="https://x.com/GGPL_ange" target="_blank" rel="noopener">あんじゅ@GGPL名古屋</a></li>
+        <li><a href="https://x.com/jin_ggnagoya" target="_blank" rel="noopener">じん@GGPL名古屋</a></li>
+        <li><a href="https://x.com/Sally_ggpl" target="_blank" rel="noopener">さりー@GGPL名古屋</a></li>
+        <li><a href="https://x.com/Nana_ggnagoya" target="_blank" rel="noopener">ななGGPL名古屋</a></li>
+        <li><a href="https://x.com/kazuhaQQ" target="_blank" rel="noopener">和葉（和まっちょ♪）</a></li>
+        <li><a href="https://x.com/nagoyaguild_" target="_blank" rel="noopener">ナゴヤギルド公式</a></li>
+        <li><a href="https://x.com/GGPLnagoya" target="_blank" rel="noopener">GGPL名古屋公式</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        作成日: 2026年6月26日（JST）。このリストは公開X情報の調査メモであり、雇用関係や現在の出勤状況を保証するものではない。
+        実運用前に、店舗側で在籍・出勤・引用可否を確認する。
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

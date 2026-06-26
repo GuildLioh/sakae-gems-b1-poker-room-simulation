@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>名古屋ギルド / GGPL名古屋 X以外のオンライン集客分析</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #fbfbf8;
+      --ink: #1f2933;
+      --muted: #637083;
+      --line: #d9e0e8;
+      --soft: #eef5f3;
+      --soft2: #f6efe6;
+      --accent: #166c5c;
+      --accent2: #9a5b1f;
+      --danger: #b84343;
+      --good: #25755f;
+      --shadow: 0 10px 28px rgba(30, 41, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: #155e75;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 22px 64px;
+    }
+
+    header {
+      padding: 28px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 930px;
+      margin: 18px 0 0;
+      color: #334155;
+      font-size: 17px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: #415164;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 18px 0 0;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: #243445;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 25px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.soft {
+      background: var(--soft);
+    }
+
+    .card.warm {
+      background: var(--soft2);
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .big-call {
+      padding: 18px 20px;
+      border-left: 5px solid var(--accent);
+      background: #f7fbfa;
+      border-radius: 8px;
+    }
+
+    .warning {
+      padding: 18px 20px;
+      border-left: 5px solid var(--danger);
+      background: #fff8f8;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      vertical-align: top;
+      border: 1px solid var(--line);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f7f7;
+      color: #20303f;
+      font-size: 13px;
+    }
+
+    td {
+      font-size: 14px;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 12px 1.2em;
+      padding: 0;
+    }
+
+    li {
+      margin: 0 0 8px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 3px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status.good {
+      color: var(--good);
+      border-color: rgba(37, 117, 95, 0.3);
+      background: #f4fbf8;
+    }
+
+    .status.gap {
+      color: var(--danger);
+      border-color: rgba(184, 67, 67, 0.25);
+      background: #fff8f8;
+    }
+
+    .status.watch {
+      color: var(--accent2);
+      border-color: rgba(154, 91, 31, 0.25);
+      background: #fffaf2;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .step strong {
+      color: var(--accent);
+    }
+
+    .sources {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .source-item {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .source-item b {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        padding: 22px 14px 48px;
+      }
+
+      .grid,
+      .grid.three,
+      .sources {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="kicker">Non-X Online Acquisition Analysis</p>
+      <h1>名古屋ギルド / GGPL名古屋<br>X以外のオンライン集客分析</h1>
+      <p class="lead">
+        公開されている公式サイト、検索結果、ポータル、口コミ系ページ、動画・LINE導線を確認し、X以外で「何があるのか」「何が足りていないのか」を整理した。単なる媒体一覧ではなく、来店までの導線として機能しているか、なぜその判断になるのかを残す。
+      </p>
+      <div class="meta">
+        <span class="pill">調査日: 2026-06-26 JST</span>
+        <span class="pill">対象: 名古屋ギルド / GGPL名古屋 / 名古屋主要競合</span>
+        <span class="pill">対象外: X運用そのもの</span>
+        <span class="pill">背景: 白ベース共有用HTML / Netlify対応</span>
+      </div>
+      <nav>
+        <a href="#summary">結論</a>
+        <a href="#facts">確認できた公開面</a>
+        <a href="#funnel">導線別の不足</a>
+        <a href="#competitors">競合分析</a>
+        <a href="#stores">店舗別分析</a>
+        <a href="#shared">2店舗共通の設計</a>
+        <a href="#priority">優先順位</a>
+        <a href="#sources">確認ソース</a>
+      </nav>
+    </header>
+
+    <section id="summary">
+      <h2>結論</h2>
+      <div class="big-call">
+        <p>
+          両店とも「存在しているオンライン面」は十分ある。公式サイト、ポーカーギルド、コンカフェ系ポータル、検索・口コミ系ページ、GGPL側のLINE/YouTube文脈まで確認できるため、完全にオンライン導線がない状態ではない。
+        </p>
+        <p>
+          ただし、X以外で新規客を取りにいく設計として見ると、現在の弱点は「媒体の不足」よりも「来店前の不安を消して、来店後に再訪理由へ変える面が薄い」ことにある。特に、Instagram/ショート動画/Googleビジネス/LINE/SEO記事/口コミの扱いが、単独の点としては存在していても、来店までの一本道になっていない。
+        </p>
+        <p>
+          競合を見ると、この弱点はよりはっきりする。SECOND NUTS、CheckRaise、REX、BEGINSは「初心者でも行ける理由」を前面に出し、PARADIAやロイヤルフラッシュはランキング/LINE/Instagram/YouTubeなど複数面を置いている。VALHALLAはポーカー専業というより飲食予約面を使っていて、HotPepper/ぐるなびの空席確認がそのまま集客導線になっている。名古屋ギルド/GGPLはブランドや既存実績で勝てる部分がある一方、X以外の初回来店導線だけを見ると競合の方がわかりやすい箇所がある。
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card soft">
+          <span class="label">Nagoya Guild</span>
+          <h3>名古屋ギルドは「入りやすさ」をもっとオンライン上で説明すべき</h3>
+          <p>
+            名古屋ギルドは、名駅近く、アミューズメントカジノ、ポーカー以外のゲーム、メイド/会話要素という入口の広さがある。これはポーカー未経験、友人同士、仕事帰り、観光・遠征客には強い。しかし公式サイトやポータルを見る限り、X以外で「初めてでもどう入ればいいか」「料金はいくらからか」「1人でも大丈夫か」「どのゲームから始めるべきか」を細かく受ける導線が弱い。入りやすい店なのに、検索で見つけた人が来店前に安心しきるだけの説明面が足りていない。
+          </p>
+        </div>
+        <div class="card warm">
+          <span class="label">GGPL Nagoya</span>
+          <h3>GGPL名古屋は「競技性」を怖く見せず、体験化して見せるべき</h3>
+          <p>
+            GGPL名古屋は、公式サイト上のトーナメントスケジュール、GGPoker連携、YouTube Live/ライブレポーティング、GEMS栄の施設文脈、口コミ評価の強さがある。競技寄り・本格派としての素材は名古屋ギルドより強い。一方で、検索で初めて見る人には「うまい人向け」「常連向け」「ルールを知っている人向け」に見えやすい。X以外の集客では、初心者講習、初回プラン、店内の雰囲気、当日参加の流れ、ハイライト動画を、怖さを消す順番で並べる必要がある。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="facts">
+      <h2>確認できた公開面</h2>
+      <p class="note">
+        ここは「実在を確認できたもの」。強い・弱いの判断は次章以降で分ける。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>面</th>
+            <th>名古屋ギルド</th>
+            <th>GGPL名古屋</th>
+            <th>判断メモ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="status good">公式サイト</span></td>
+            <td>
+              公式サイトにHOME、TOURNAMENT、GAME、SYSTEM、ACCESS、NEWSがある。2026年6月のNEWS更新も確認でき、放置サイトではない。
+            </td>
+            <td>
+              公式サイトにトーナメント予定、NEWS、SYSTEM、ACCESS、採用情報がある。直近日付のトーナメント情報が出ており、競技日程の受け皿として機能している。
+            </td>
+            <td>
+              公式サイトは両方とも存在し、最低限の営業情報は取れる。ただし、初回来店・予約・LINE登録・動画視聴への導線設計は別問題。
+            </td>
+          </tr>
+          <tr>
+            <td><span class="status good">ポーカー系ポータル</span></td>
+            <td>
+              PokerGuildの店舗ページで住所、営業時間、支払い、サービス、公式リンクを確認できる。Waitinglist/DMM系にも掲載が見える。
+            </td>
+            <td>
+              GGPL公式サイト側に日程表示があり、PR記事ではPokerGuildのトーナメントリンクも案内されている。ポーカー目的客には見つけられる導線がある。
+            </td>
+            <td>
+              既存ポーカープレイヤーに向けた発見面はある。逆に言うと、ポーカー未経験者・夜遊び層・観光層への説明には弱くなりやすい。
+            </td>
+          </tr>
+          <tr>
+            <td><span class="status good">コンカフェ/遊び場系ポータル</span></td>
+            <td>
+              カフェるん、全国コンカフェマップ、コンカなどで店のコンセプトやゲーム内容が見える。
+            </td>
+            <td>
+              カフェるん、GEMS栄公式、Tripadvisor/Wanderlog系で店の概要やアクセス、口コミ文脈が見える。
+            </td>
+            <td>
+              ポーカー専門外の検索面にも出てくる。ただし、複数サイト間で表記・電話番号・営業時間・初心者講習の見せ方がずれると信用を落とす。
+            </td>
+          </tr>
+          <tr>
+            <td><span class="status watch">Instagram / ショート動画</span></td>
+            <td>
+              検索上はナゴヤギルドのInstagramアカウントが確認できる。公式サイト上の主要SNS導線としてはXが強く見える。
+            </td>
+            <td>
+              GGPL名古屋単体の公式Instagramは検索上で強く出にくい。GGPL大阪や渋谷は見えるが、名古屋の独立したショート動画導線は弱く見える。
+            </td>
+            <td>
+              X以外の新規獲得では、Instagram/Reels/TikTok/YouTube Shortsの店内可視化が重要。現状は「存在」より「来店前不安を消す使い方」が足りない。
+            </td>
+          </tr>
+          <tr>
+            <td><span class="status good">LINE / 直接接点</span></td>
+            <td>
+              公式サイトやPokerGuild上では、LINE導線が目立つ形では確認しにくい。
+            </td>
+            <td>
+              GGPL公式サイトのフッターにNAGOYAのLINEリンクが確認できる。
+            </td>
+            <td>
+              GGPLはLINEの器がある。名古屋ギルドは、X以外の再接触導線としてLINEを明確に前面化する余地が大きい。
+            </td>
+          </tr>
+          <tr>
+            <td><span class="status watch">口コミ / Google周辺</span></td>
+            <td>
+              Tripadvisorやコンカ系口コミページが見える。評価は確認できるが、件数・内容の厚みではGGPLより薄く見える。
+            </td>
+            <td>
+              Wanderlog経由でGoogle由来の高評価・多数レビューが見える。Tripadvisorにも掲載がある。
+            </td>
+            <td>
+              GGPLは口コミを「信頼証拠」として再利用できる資産がある。名古屋ギルドは口コミ面を放置すると、少数のネガティブ印象に引っ張られやすい。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="funnel">
+      <h2>導線別の不足</h2>
+      <p>
+        集客は媒体を増やせば解決する話ではない。特にアミューズメントポーカーは、来店前に「怖そう」「常連ばかりそう」「料金がわからない」「何時に行けばいいかわからない」という不安が出やすい。X以外のオンライン面では、その不安を段階ごとに潰す必要がある。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>段階</th>
+            <th>今あるもの</th>
+            <th>足りていないもの</th>
+            <th>なぜそう判断したか</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. 発見</td>
+            <td>
+              公式サイト、ポータル、GEMS、Tripadvisor、コンカフェ系ページ、検索結果で両店名は見つかる。
+            </td>
+            <td>
+              「名古屋 ポーカー 初心者」「栄 ポーカー 初心者」「名古屋駅 カジノバー」「名古屋 夜遊び 2次会」など、需要語ごとの専用着地ページが弱い。
+            </td>
+            <td>
+              競合は「無料初心者講習」「オンラインチュートリアル」「初心者に優しい」を検索面に直接出している。両店はブランド名検索では見つかるが、悩み検索の受け皿はまだ弱い。
+            </td>
+          </tr>
+          <tr>
+            <td>2. 安心</td>
+            <td>
+              初心者講習や幅広いプレイヤー向けの説明は複数ページに存在する。
+            </td>
+            <td>
+              「初めての方へ」ページで、入店から退店までの流れ、予算、所要時間、服装、1人参加、女性/友人同士、観戦だけ可否を具体的に見せる必要がある。
+            </td>
+            <td>
+              ポーカー未経験者はルール以前に店内の入り方が不安になる。現状は概念説明や店舗紹介はあるが、来店シミュレーションとしては情報が散っている。
+            </td>
+          </tr>
+          <tr>
+            <td>3. 比較</td>
+            <td>
+              名古屋ギルドは複数ゲーム・名駅側、GGPLは本格ポーカー・栄側という差がある。
+            </td>
+            <td>
+              2店舗の役割分担を公式に近い導線で説明できていない。初心者は名古屋ギルド、トーナメント深掘りはGGPL、という進み方がオンライン上で見えない。
+            </td>
+            <td>
+              同じグループ/近い関係の強みは、片方を競合にせず「入口」と「深化」に分けられること。今は店ごとの面はあるが、ユーザー視点の道案内としてはまだ弱い。
+            </td>
+          </tr>
+          <tr>
+            <td>4. 行動</td>
+            <td>
+              GGPLにはLINEリンクが確認できる。各店に電話やアクセス情報はある。
+            </td>
+            <td>
+              「今日行ける」「初心者講習を受けたい」「何時が空いている」「トーナメントに出たい」を1クリックで分けるCTAが足りない。
+            </td>
+            <td>
+              連絡先があることと、行動が起きることは別。初回客は店に電話する心理的ハードルが高い。LINEで選択肢を押せる形にすると離脱が減る。
+            </td>
+          </tr>
+          <tr>
+            <td>5. 再訪</td>
+            <td>
+              トーナメント、ランキング、イベント、NEWSはある。
+            </td>
+            <td>
+              初回後のLINEステップ、初心者卒業ミッション、月次ランキング、2店舗横断の参加履歴、次回来店理由の自動配信が足りない。
+            </td>
+            <td>
+              Xは情報更新には強いが、見逃しも多い。X以外で再訪を作るなら、LINE/メール/会員ページ/ランキングのように直接届く面が必要になる。
+            </td>
+          </tr>
+          <tr>
+            <td>6. 拡散</td>
+            <td>
+              GGPLは配信・Final Table・YouTube文脈がある。名古屋ギルドはキャスト/空間/ゲームの画がある。
+            </td>
+            <td>
+              Reels/TikTok/Shorts向けの定番フォーマットが足りない。結果報告、初回来店、ルール講習、店内導線、イベントの15秒化が必要。
+            </td>
+            <td>
+              X以外の新規は、文章より先に映像で安心する。ポーカーは一見難しく見えるため、短尺動画で「思ったより入りやすい」を見せる価値が高い。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="competitors">
+      <h2>競合店のX以外オンライン集客</h2>
+      <p>
+        競合は大きく4タイプに分かれる。第一に、初心者不安を直接取りに行く店。第二に、ランキング・会員・LINEで再訪を作る店。第三に、飲食/バー予約媒体を使ってポーカー外の来店理由を作る店。第四に、Instagram/TikTok/ショート動画で空間やキャストを見せる店。名古屋ギルド/GGPLが見るべきなのは「競合がどの媒体を持っているか」だけではなく、どの不安や欲求をオンラインで先に処理しているかである。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>競合店舗</th>
+            <th>X以外で確認できるオンライン面</th>
+            <th>強い点</th>
+            <th>足りない/弱い点</th>
+            <th>名古屋ギルド/GGPLへの示唆</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SECOND NUTS</td>
+            <td>
+              公式サイト、初めての方へ、料金、アクセス、ランキング、リング状況、お知らせ、問い合わせ、オンラインチュートリアル、LINE連携導線。
+            </td>
+            <td>
+              初回来店導線が非常に強い。トップから「初めての方へ」「料金」「アクセス」がすぐ見え、予約不要・おひとり様歓迎・初心者講習・5分チュートリアル・LINE連携ポイントまでつながっている。検索で来た人が不安を解消しやすい。
+            </td>
+            <td>
+              大型ブランドやライブ配信/大規模大会の印象はGGPLほど強くない。コンテンツは実用的だが、憧れ・強い競技体験の演出では伸びしろがある。
+            </td>
+            <td>
+              名古屋ギルド/GGPLが一番参考にすべき相手。特に「来店前チュートリアル」「LINE連携特典」「リング状況」のような、行く前に不安を減らす導線はすぐに取り入れたい。
+            </td>
+          </tr>
+          <tr>
+            <td>PARADIA NAGOYA</td>
+            <td>
+              公式サイト、ABOUT、リング初心者歓迎、トーナメントカレンダー、トーナメント情報、ポイント、PRICE、リング純増ランキング、決済、駐車場、Poker用語、Instagram、YouTube、Facebook、問い合わせ。
+            </td>
+            <td>
+              情報量が多く、プレイヤー向けの実務面がかなりそろっている。ランキングやポイント、用語、決済、駐車場まで置いており、既存客・準既存客が再訪する材料を作れている。
+            </td>
+            <td>
+              情報量が多いぶん、初心者が最初に読むべき順番はやや散りやすい。トップで強く「初めてならこれだけ見ればよい」と言い切る設計ではSECOND NUTSほど明快ではない。
+            </td>
+            <td>
+              GGPLはPARADIA型の「競技/ランキング/イベント蓄積」を参考にできる。名古屋ギルドは、用語・駐車場・決済のような実務FAQを足すと、初回客の不安をさらに減らせる。
+            </td>
+          </tr>
+          <tr>
+            <td>CheckRaise</td>
+            <td>
+              公式サイト、初心者向け説明、コンセプト、料金、初心者講習プラン、リングゲーム案内、フード/ドリンク、アクセス。
+            </td>
+            <td>
+              「日本一初心者に優しい」を前面に出しており、初心者講習プランも入場料込み3,000円など、入口価格が見える。初心者の検索需要を直接受ける設計。
+            </td>
+            <td>
+              競技・大会・ランキング・配信などの上達後の深さは強く見えにくい。初心者の次のステップ設計は、GGPL側の方が作りやすい。
+            </td>
+            <td>
+              名古屋ギルドはCheckRaiseの言い切り方を参考にすべき。「初心者でも大丈夫」ではなく、「何円で、何を、どこまで教えるか」まで見せる必要がある。
+            </td>
+          </tr>
+          <tr>
+            <td>MUSASHI POKER ROOM 名古屋店</td>
+            <td>
+              公式サイト、店舗ページ、貸卓/プライベートテーブル、飲み放題、アクセス、採用、ランキング、Instagram検索表示。
+            </td>
+            <td>
+              13時からの営業時間、貸卓、プライベート利用、飲み放題、コスパ訴求が見える。友人グループや昼から遊びたい層に刺さりやすい。
+            </td>
+            <td>
+              初心者不安を解消する詳しいLPや、LINEで再接触する面は強く見えない。貸卓/コスパは強いが、継続参加の物語は薄くなりやすい。
+            </td>
+            <td>
+              名古屋ギルドは「友人同士・貸切・二次会」導線で競合されやすい。ポーカー以外のゲームも含めたグループ利用プランを公式で見せると対抗しやすい。
+            </td>
+          </tr>
+          <tr>
+            <td>ロイヤルフラッシュ</td>
+            <td>
+              公式サイト、アクセス、システム、フード&ドリンク、トーナメント、ブログ、ランキング、Instagram、Facebook、LINE友だち限定トーナメント情報。
+            </td>
+            <td>
+              公式サイトの歴史があり、ランキング・ブログ・LINE配信・フード&ドリンクまでそろう。学割/レディース割も見えるため、価格面の訴求ができる。
+            </td>
+            <td>
+              ブログ更新は直近でなく古いものも混ざる。ページ内に画像依存の情報が多く、検索から読む人にとってはテキストで拾える説明がやや弱い。
+            </td>
+            <td>
+              LINE限定トーナメント情報は参考になる。名古屋ギルド/GGPLも、Xを見ない層にはLINEで「次に来る理由」を配る必要がある。
+            </td>
+          </tr>
+          <tr>
+            <td>REX POKER NAGOYA</td>
+            <td>
+              公式サイト、Concept、Menu、FAQ、Access、Instagram、LINE、アプリ導線、ビギナーズゲーム、トーナメント、リングゲーム、飲食のみ利用可のFAQ。
+            </td>
+            <td>
+              FAQがかなり実用的。初心者講習、ビギナーズゲーム、学生利用、友人同伴、賭け不可、飲食のみ可、撮影可否、喫煙、問い合わせまで答えている。来店前の疑問を細かく潰している。
+            </td>
+            <td>
+              競技実績やイベントの強さは公式サイト上だけでは限定的。大規模大会や配信の見え方ではGGPLに分がある。
+            </td>
+            <td>
+              名古屋ギルド/GGPLともにFAQの粒度を上げるべき。特に「観戦だけ」「飲食だけ」「友人と同卓できるか」「撮影できるか」は、初心者やライト層の不安に直結する。
+            </td>
+          </tr>
+          <tr>
+            <td>POKER & BAR J8</td>
+            <td>
+              公式サイト、FAQ、Instagram、X、YouTube、Players ID、スタッフ紹介、問い合わせフォーム。
+            </td>
+            <td>
+              SNSだけでなく、会員WEBアプリ「Players ID」やホームページで案内する姿勢が見える。FAQも、初心者、友人同伴、飲食だけ、賭け不可、撮影、喫煙など広い。
+            </td>
+            <td>
+              検索上では名古屋ギルド/GGPLほどブランド想起が強くない。ポーカー店としての大きな導線は、公式サイトやSNSを見つけた後の勝負になりやすい。
+            </td>
+            <td>
+              GGPLがやるべき「会員/ID/結果/ランキング」方向の参考になる。JOPT GamesやLINEとつなぐなら、J8のような会員面をより強い規模で実装できる。
+            </td>
+          </tr>
+          <tr>
+            <td>VALHALLA</td>
+            <td>
+              lit.link、Instagram、HotPepper、ぐるなび、ネット予約、空席確認、飲食店系ページ、食べログ系掲載。
+            </td>
+            <td>
+              ポーカー店というより、アミューズメントカジノバーとして飲食予約媒体を使えているのが強い。HotPepper/ぐるなびに空席・即予約が出るため、ポーカーに強い興味がない人でも「バー/遊び場」として予約できる。
+            </td>
+            <td>
+              ポーカー競技導線、ランキング、トーナメント深度は強く見えない。飲食予約面は強いが、ポーカー上達や大会参加の道は弱い。
+            </td>
+            <td>
+              名古屋ギルドはVALHALLA型の飲食/二次会/カジノバー導線と競合する。X以外で勝つには、ポーカー以外の遊び方、予約、グループ利用、飲み利用をもっと見せる必要がある。
+            </td>
+          </tr>
+          <tr>
+            <td>BEGINS poker 名古屋大須店</td>
+            <td>
+              Instagram、Waitinglist、X検索表示。Instagram上では初心者特化、説明付き、明朗会計を強く訴求。
+            </td>
+            <td>
+              「初心者特化店」としてのポジションが明快。公式サイトが弱くても、Instagramプロフィールだけで誰向けかが伝わる。大須という街の入口とも相性が良い。
+            </td>
+            <td>
+              独立した公式サイトやSEO面、LINE/予約/ランキングの公開面は強く見えない。Instagramに依存しやすい。
+            </td>
+            <td>
+              名古屋ギルドの初心者向け発信は、BEGINSほど一言で伝わるポジションにできていない。名駅初心者入口として、もっと短い見出しで打ち出す余地がある。
+            </td>
+          </tr>
+          <tr>
+            <td>INSPIRE POKER</td>
+            <td>
+              Instagram、LINE公式、PR記事、Waitinglist、比較記事、公式サイト、TikTok文脈、専用アプリ/ランキング/戦績/フレンド機能の説明。
+            </td>
+            <td>
+              東海最大級、8卓、RFID、豪華内装、LINE、アプリ、Instagram/TikTok、PR記事という「派手さ」と「デジタル会員化」がある。既存ポーカープレイヤーにも新規にも強い見え方ができる。
+            </td>
+            <td>
+              ラグジュアリー/大規模感が強いぶん、完全初心者には緊張感も出る。初回来店のやさしさをどこまで前に出せるかは別課題。
+            </td>
+            <td>
+              GGPLの直接競合として要注意。GGPLは配信・GGPoker・競技導線で勝てるが、INSPIREのアプリ/LINE/映像/内装訴求に対して、X以外の見え方を強くする必要がある。
+            </td>
+          </tr>
+          <tr>
+            <td>Playback / POKER CAFE mig など</td>
+            <td>
+              Playbackは比較記事/Waitinglist/X中心で、初心者・飲食・イベント文脈が見える。POKER CAFE migは2026年7月オープン予定として、コンカフェ×ポーカーの新規導線が比較記事に出ている。
+            </td>
+            <td>
+              Playbackは初心者同士・見学歓迎・食事ができるというライト層訴求がある。migはコンカフェ×ポーカーで、名古屋ギルドのメイド/アミューズメント入口と近い層を取りに来る可能性がある。
+            </td>
+            <td>
+              公式サイトやLINE/予約/ランキングの強さは、上位競合ほど見えない。migはオープン前のため実運用は未確認。
+            </td>
+            <td>
+              名古屋ギルドはコンカフェ/アミューズメント色で新規競合が増える前に、既存の世界観と安心導線を整える必要がある。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid three">
+        <div class="card soft">
+          <span class="label">Competitor Pattern 1</span>
+          <h3>初心者LP競争</h3>
+          <p>
+            SECOND NUTS、CheckRaise、REX、BEGINSは、初心者の不安をかなり直接取りに来ている。ここで名古屋ギルド/GGPLが弱く見える理由は、初心者講習があるかどうかではなく、「検索して初めて見た人に、何分で何円で何ができるか」が一目でわかるかどうかで差が出るため。
+          </p>
+        </div>
+        <div class="card warm">
+          <span class="label">Competitor Pattern 2</span>
+          <h3>LINE/会員/ランキング競争</h3>
+          <p>
+            PARADIA、ロイヤルフラッシュ、SECOND NUTS、INSPIRE、J8は、ランキング・LINE・会員アプリ・ポイント・Players IDなど、再訪や継続参加を作る材料が見える。X以外で戻すには、このタイプの仕組みが必要になる。
+          </p>
+        </div>
+        <div class="card">
+          <span class="label">Competitor Pattern 3</span>
+          <h3>飲食/予約媒体競争</h3>
+          <p>
+            VALHALLAはHotPepperやぐるなびで空席確認・ネット予約の面を持つ。ポーカーを知らない人から見ると、これはかなり強い。ポーカー店として探していなくても、バー/二次会/遊び場として予約できるから。
+          </p>
+        </div>
+      </div>
+
+      <div class="warning">
+        <p>
+          競合分析から見る最大の危険は、名古屋ギルド/GGPLが「店の実力」では負けていないのに、「X以外で初めて見た人に伝わる順番」で負けること。競合は初心者、予約、LINE、ランキング、Instagramプロフィールのような入口を細かく作っている。名古屋ギルド/GGPLは、既存ブランド・店舗規模・大会/配信文脈を持っているぶん、初回来店LPと再接触導線を作るだけで伸びしろが大きい。
+        </p>
+      </div>
+    </section>
+
+    <section id="stores">
+      <h2>店舗別分析</h2>
+      <div class="grid">
+        <article class="card soft">
+          <span class="label">Nagoya Guild</span>
+          <h3>名古屋ギルドにあるもの</h3>
+          <ul>
+            <li>公式サイトがあり、HOME、TOURNAMENT、GAME、SYSTEM、ACCESS、NEWSが存在する。直近NEWSも更新されているため、閉じた店舗や放置サイトには見えない。</li>
+            <li>名駅側の立地、アミューズメントカジノ、多種ゲーム、ポーカー以外の遊びがあり、ポーカー目的でなくても入れる説明素材がある。</li>
+            <li>PokerGuild、カフェるん、コンカフェ系マップ、Tripadvisor/Yahoo周辺など、検索で拾われる第三者面がある。</li>
+            <li>Instagramアカウントは検索上確認できるため、X以外のビジュアル導線を育てる土台はある。</li>
+          </ul>
+          <h3>名古屋ギルドに足りていないもの</h3>
+          <ul>
+            <li>公式サイトからInstagram/LINE/Google口コミなどへ進ませる導線が弱く見える。X以外で接触を残す仕組みが前面に出ていない。</li>
+            <li>初心者向けの説明が「初心者でも楽しめる」という宣言で止まりやすい。実際に何をすれば入れるのか、いくらかかるのか、1人でも行けるのか、どのゲームを選べばよいのかが足りない。</li>
+            <li>短尺動画で店内導線を見せる素材が弱い。名駅から店まで、受付、初回説明、ゲーム中の雰囲気、退店までを見せるだけで不安がかなり減る。</li>
+            <li>口コミの良い部分を公式に回収する設計と、ネガティブに見える口コミへの対処設計が弱い。少数の悪印象が検索上で残ると、初心者向け店舗ほど痛い。</li>
+            <li>GGPLへの自然なステップアップ導線が見えにくい。名古屋ギルドで慣れてからGGPLのトーナメントへ、という道を作ればグループ内回遊になる。</li>
+          </ul>
+          <h3>なぜそう判断したか</h3>
+          <p>
+            名古屋ギルドは、店そのものの強みが「ポーカー専業の緊張感」ではなく「遊びとして入りやすいこと」にある。だからオンライン上でも、競技実績より先に安心・雰囲気・初回手順を見せる必要がある。公式サイトやポータルは存在するが、初回客の不安を1ページで潰す形にはまだなっていない。ここが弱いと、検索で見つかったとしても、より説明が細かい競合へ流れる。
+          </p>
+        </article>
+
+        <article class="card warm">
+          <span class="label">GGPL Nagoya</span>
+          <h3>GGPL名古屋にあるもの</h3>
+          <ul>
+            <li>公式サイトにトーナメント予定、NEWS、アクセス、LINEリンクがあり、ポーカー目的客の受け皿は比較的強い。</li>
+            <li>GEMS栄の施設ページに掲載され、栄駅からのアクセス、平均予算、営業時間、施設文脈での発見ができる。</li>
+            <li>カフェるんやPR記事で、GGPoker連携、YouTube Live、ライブレポーティング、初心者講習という強い説明素材がある。</li>
+            <li>Wanderlog経由でGoogle由来の高評価・多数レビューが見え、初回客の安心材料になる。</li>
+          </ul>
+          <h3>GGPL名古屋に足りていないもの</h3>
+          <ul>
+            <li>本格感が強い分、初心者には「自分が行っていい場所か」が見えにくい。初心者講習の存在を、公式サイトの初回導線としてもっと前に出す必要がある。</li>
+            <li>YouTube LiveやFinal Tableの素材が、ショート動画や店頭体験のハイライトとして再利用されている印象が弱い。配信設備があるなら、毎週の名場面を縦動画化できる。</li>
+            <li>LINEリンクはあるが、目的別の入口が見えない。初心者講習、当日トーナメント、リング、イベント通知、結果/ランキングで登録後の流れを分けるべき。</li>
+            <li>Googleレビューの強さを公式LPに回収しきれていない。高評価は広告費なしで使える信用資産なので、トップや初回ページで見せた方がよい。</li>
+            <li>名古屋単体のInstagram/TikTok/Shorts導線が検索上で強くない。GGPLブランド全体ではなく、栄の店内・客層・曜日別混雑感が見える面が必要。</li>
+          </ul>
+          <h3>なぜそう判断したか</h3>
+          <p>
+            GGPL名古屋は、オンライン上の素材だけを見ると「強い店」に見える。トーナメント、GGPoker、配信、レビュー、栄立地がそろっているから。ただし、その強さは既存プレイヤーには魅力でも、初心者には心理的な壁にもなる。X以外の集客を伸ばすなら、強さをそのまま出すより、初回客が段階的に入れるように翻訳する必要がある。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="shared">
+      <h2>2店舗共通で作るべきオンライン設計</h2>
+      <p>
+        2店舗を別々に見るだけだと、名古屋ギルドは「初心者・遊び」、GGPLは「競技・トーナメント」で終わる。しかし本来は、名駅側の入りやすさと栄側の深さをつなげると強い。X以外のオンライン集客は、店ごとの投稿数を増やすより、2店舗をまたいだ来店ルートを作る方が効果が出やすい。
+      </p>
+      <div class="grid three">
+        <div class="card">
+          <span class="label">Entry</span>
+          <h3>名古屋ギルドを入口にする</h3>
+          <p>
+            「初めてのポーカー」「カジノゲーム体験」「友人と遊ぶ」「名駅で仕事帰り」を受ける。動画は入店手順、初回予算、どのゲームが簡単か、スタッフがどう教えるかを中心にする。
+          </p>
+        </div>
+        <div class="card">
+          <span class="label">Depth</span>
+          <h3>GGPLを深化先にする</h3>
+          <p>
+            「トーナメントに出たい」「GGPoker文脈で遊びたい」「配信/Final Tableを体験したい」「毎週通いたい」を受ける。動画はハンド解説、決勝卓、初心者講習後の初出場、週末イベントを中心にする。
+          </p>
+        </div>
+        <div class="card">
+          <span class="label">Retention</span>
+          <h3>LINE/ランキングで戻す</h3>
+          <p>
+            2店舗横断の初心者ミッション、来店スタンプ、月間ランキング、イベント通知を作る。Xを見ていない人にも、次回行く理由を直接届ける。
+          </p>
+        </div>
+      </div>
+
+      <div class="warning">
+        <p>
+          注意点として、2店舗を統合して見せすぎると、初心者にとっては情報量が増えすぎる。最初の画面では「はじめてなら名駅側」「トーナメントなら栄側」くらいまで単純化し、詳細ページで深掘りさせるのがよい。
+        </p>
+      </div>
+    </section>
+
+    <section id="priority">
+      <h2>優先順位</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>優先度</th>
+            <th>施策</th>
+            <th>対象</th>
+            <th>理由</th>
+            <th>最初の成果物</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="status gap">P0</span></td>
+            <td>各店の「初めての方へ」ページを作る</td>
+            <td>両店</td>
+            <td>
+              新規客の最大の離脱は、店の存在を知らないことより、来店前に不安が残ること。料金、流れ、所要時間、一人参加、講習、服装、当日参加可否を1ページにまとめる。
+            </td>
+            <td>白背景LP 2本 / FAQ / CTAボタン</td>
+          </tr>
+          <tr>
+            <td><span class="status gap">P0</span></td>
+            <td>LINE導線を目的別に分ける</td>
+            <td>両店、特に名古屋ギルド</td>
+            <td>
+              X以外で再接触できる面が必要。GGPLはLINEリンクが確認できるため改善余地が明確。名古屋ギルドもLINEを前面化できれば初回・再訪の取りこぼしが減る。
+            </td>
+            <td>LINEリッチメニュー / 初心者講習 / 今日の予定 / イベント通知</td>
+          </tr>
+          <tr>
+            <td><span class="status watch">P1</span></td>
+            <td>Googleビジネス/口コミ導線の整備</td>
+            <td>両店</td>
+            <td>
+              GGPLは多数レビューを信頼資産として使える。名古屋ギルドは少数の口コミ印象に左右されやすいので、良い体験をレビューに変える仕組みが必要。
+            </td>
+            <td>口コミ依頼カード / QR / 返信方針 / 公式LPへの引用枠</td>
+          </tr>
+          <tr>
+            <td><span class="status watch">P1</span></td>
+            <td>Instagram/Reels/TikTok/Shortsの定番フォーマットを作る</td>
+            <td>両店</td>
+            <td>
+              X以外の新規発見は、店内の空気が見える短尺動画と相性が良い。特に初めての人は、文章より「入りやすそう」に反応する。
+            </td>
+            <td>15秒動画テンプレ 10本 / 撮影リスト / 投稿文テンプレ</td>
+          </tr>
+          <tr>
+            <td><span class="status watch">P1</span></td>
+            <td>SEO記事を需要語で作る</td>
+            <td>両店</td>
+            <td>
+              競合は「初心者」「無料講習」「栄駅」「名古屋でポーカー」などを直接取りに来ている。ブランド名検索だけでは新規の上流を取りきれない。
+            </td>
+            <td>名古屋駅ポーカー初心者 / 栄ポーカー初心者 / 仕事帰りポーカー / 友人同士ページ</td>
+          </tr>
+          <tr>
+            <td><span class="status good">P2</span></td>
+            <td>2店舗横断ミッションを作る</td>
+            <td>グループ導線</td>
+            <td>
+              名古屋ギルドを入口、GGPLを深化先にできると、同じ顧客をグループ内で育てられる。単店集客より再訪理由が作りやすい。
+            </td>
+            <td>初心者ミッション / 月間ランキング / 2店舗来店特典 / LINE通知</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="timeline">
+        <div class="step">
+          <strong>1週目</strong>
+          <div>
+            公式サイト・ポータル・Googleビジネスの表記を棚卸しする。住所、電話、営業時間、初心者講習、料金、SNS/LINEリンクをそろえる。最初にやる理由は、検索で見た情報がずれているだけで新規は不安になるため。
+          </div>
+        </div>
+        <div class="step">
+          <strong>2週目</strong>
+          <div>
+            各店の「初めての方へ」LPとFAQを公開する。名古屋ギルドは入店のしやすさ、GGPLは初心者講習と初トーナメントまでの流れを強く出す。
+          </div>
+        </div>
+        <div class="step">
+          <strong>3週目</strong>
+          <div>
+            ショート動画を撮る。店までの道順、受付、講習、ゲームの様子、イベントの熱量、退店時の次回来店案内を撮影し、各SNSで同じ素材を使い回す。
+          </div>
+        </div>
+        <div class="step">
+          <strong>4週目</strong>
+          <div>
+            LINE導線と2店舗横断の再訪施策を入れる。初回登録者に「次はどっちへ行くか」を提案し、名古屋ギルドからGGPL、GGPLから名古屋ギルドへの回遊を作る。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>確認ソース</h2>
+      <p class="note">
+        公開ページ中心の確認。Googleビジネスの管理画面、各SNSのインサイト、LINE公式アカウント管理画面は未確認。
+      </p>
+      <div class="sources">
+        <div class="source-item">
+          <b>ナゴヤギルド 公式サイト</b>
+          <a href="https://nagoyaguild.com/">https://nagoyaguild.com/</a>
+        </div>
+        <div class="source-item">
+          <b>ナゴヤギルド PokerGuild</b>
+          <a href="https://pokerguild.jp/room?ik=12">https://pokerguild.jp/room?ik=12</a>
+        </div>
+        <div class="source-item">
+          <b>ナゴヤギルド カフェるん</b>
+          <a href="https://shop.caferun.jp/shop/7210/">https://shop.caferun.jp/shop/7210/</a>
+        </div>
+        <div class="source-item">
+          <b>ナゴヤギルド Tripadvisor</b>
+          <a href="https://www.tripadvisor.jp/Attraction_Review-g298106-d8353233-Reviews-Nagoya_Guild-Nagoya_Aichi_Prefecture_Tokai_Chubu.html">https://www.tripadvisor.jp/Attraction_Review-g298106-d8353233-Reviews-Nagoya_Guild-Nagoya_Aichi_Prefecture_Tokai_Chubu.html</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL名古屋 公式サイト</b>
+          <a href="https://ggpokerlive.jp/nagoya/">https://ggpokerlive.jp/nagoya/</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL名古屋 NEWS</b>
+          <a href="https://ggpokerlive.jp/nagoya/news/">https://ggpokerlive.jp/nagoya/news/</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL名古屋 GEMS栄</b>
+          <a href="https://www.gems-portal.com/sakae/shop/ggp.html">https://www.gems-portal.com/sakae/shop/ggp.html</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL名古屋 カフェるん</b>
+          <a href="https://shop.caferun.jp/shop/10939/">https://shop.caferun.jp/shop/10939/</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL名古屋 PR記事</b>
+          <a href="https://dressy.pla-cole.wedding/prtimes_397114/">https://dressy.pla-cole.wedding/prtimes_397114/</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL名古屋 Wanderlog</b>
+          <a href="https://wanderlog.com/place/details/7940933/goodgame-poker-live-nagoya-ggpl-%E5%90%8D%E5%8F%A4%E5%B1%8B-%E3%83%9D%E3%83%BC%E3%82%AB%E3%83%BC">https://wanderlog.com/place/details/7940933/goodgame-poker-live-nagoya-ggpl-%E5%90%8D%E5%8F%A4%E5%B1%8B-%E3%83%9D%E3%83%BC%E3%82%AB%E3%83%BC</a>
+        </div>
+        <div class="source-item">
+          <b>GGPL Live Streaming</b>
+          <a href="https://ggpokerlive.jp/live-streaming/">https://ggpokerlive.jp/live-streaming/</a>
+        </div>
+        <div class="source-item">
+          <b>名古屋ポーカー比較検索の参考</b>
+          <a href="https://light-three.com/nagoya-poker/">https://light-three.com/nagoya-poker/</a>
+        </div>
+        <div class="source-item">
+          <b>名古屋・栄ポーカー比較の参考</b>
+          <a href="https://light-three.com/sakae-poker/">https://light-three.com/sakae-poker/</a>
+        </div>
+        <div class="source-item">
+          <b>Trust Plus 名古屋ポーカールーム比較</b>
+          <a href="https://my.beyond-ss.com/pokerroom-nagoya/">https://my.beyond-ss.com/pokerroom-nagoya/</a>
+        </div>
+        <div class="source-item">
+          <b>PARADIA NAGOYA 公式サイト</b>
+          <a href="https://www.paradia.net/">https://www.paradia.net/</a>
+        </div>
+        <div class="source-item">
+          <b>SECOND NUTS 公式サイト</b>
+          <a href="https://www.secondnuts-poker.com/">https://www.secondnuts-poker.com/</a>
+        </div>
+        <div class="source-item">
+          <b>CheckRaise 公式サイト</b>
+          <a href="https://checkraise.jp/">https://checkraise.jp/</a>
+        </div>
+        <div class="source-item">
+          <b>MUSASHI POKER ROOM 名古屋店</b>
+          <a href="https://web.pokerroom634.com/nagoya/">https://web.pokerroom634.com/nagoya/</a>
+        </div>
+        <div class="source-item">
+          <b>ロイヤルフラッシュ 公式サイト</b>
+          <a href="https://royal-flash.jp/">https://royal-flash.jp/</a>
+        </div>
+        <div class="source-item">
+          <b>REX POKER NAGOYA 公式サイト</b>
+          <a href="https://www.rexpoker.jp/">https://www.rexpoker.jp/</a>
+        </div>
+        <div class="source-item">
+          <b>POKER & BAR J8 公式サイト</b>
+          <a href="https://jack8.jp/">https://jack8.jp/</a>
+        </div>
+        <div class="source-item">
+          <b>VALHALLA HotPepper</b>
+          <a href="https://www.hotpepper.jp/strJ004543009/">https://www.hotpepper.jp/strJ004543009/</a>
+        </div>
+        <div class="source-item">
+          <b>VALHALLA ぐるなび</b>
+          <a href="https://ncau301.gorp.jp/">https://ncau301.gorp.jp/</a>
+        </div>
+        <div class="source-item">
+          <b>BEGINS poker Instagram</b>
+          <a href="https://www.instagram.com/beginspoker_nagoyaosu/">https://www.instagram.com/beginspoker_nagoyaosu/</a>
+        </div>
+        <div class="source-item">
+          <b>INSPIRE POKER LINE公式</b>
+          <a href="https://page.line.me/315ajxpg">https://page.line.me/315ajxpg</a>
+        </div>
+        <div class="source-item">
+          <b>INSPIRE POKER PR記事</b>
+          <a href="https://prtimes.jp/main/html/rd/p/000000001.000139114.html">https://prtimes.jp/main/html/rd/p/000000001.000139114.html</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
